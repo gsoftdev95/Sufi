@@ -450,7 +450,6 @@
     padding: 10px;
     border-radius: 10px;
     width: 100%;
-
 }
 .containerFormSearNeg{
     width: 100%;
@@ -1123,6 +1122,11 @@ footer{
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 20px;
+
+    @media (width<1024px) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
 }
 
 .cardDash {
@@ -1146,15 +1150,23 @@ footer{
 
 .sectionChartsDash {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
     gap: 10px;
     margin: 10px 0px;
+
+    @media (width<1024px) {
+        width: 100%;
+    }
 }
 .chartBox {
     background: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+    @media (width<1024px) {
+        width: 100%;
+    }
 }
 .chartBox canvas{
     width: 100%;
@@ -1172,8 +1184,15 @@ footer{
 /*********************/
 .containerCardsPedidos{
     display: flex;
+    flex-wrap: wrap;
     margin: 10px 0px;
     gap: 10px;
+    width: 100%;
+
+    @media (width<1024px) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
 }
 .cardsPedidos{    
     background-color: var(--bg);
@@ -1201,13 +1220,26 @@ footer{
     width: 100%;
 }
 .containerFormSearPed{
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (width<480px) {
+        flex-direction: column;
+    }
 }
 .pedidosSearchForm{
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
+
+    @media (width<480px) {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 6px;
+        width: 90%;
+    }
 }
 .pedidosSearchForm input{
     max-width: clamp(300px, 50vw, 500px);
@@ -1221,6 +1253,10 @@ footer{
 .btnSearchFormPed{
     background-color: var(--success);
     margin: 0px 5px;
+
+    @media (width<480px) {
+        margin: 0;
+    }
 }
 .btnSearchFormPed:hover{
     background-color: var(--success-hover);
@@ -1229,6 +1265,11 @@ footer{
     width: 100%;
     display: flex;
     justify-content: flex-end;
+
+    @media (width<480px) {
+        justify-content: flex-start;
+        width: 90%;   
+    }
 }
 .ExpCsvPed{
     text-decoration: none;
@@ -1238,17 +1279,20 @@ footer{
     padding: 8px 18px;
     color: var(--bg);
     border-radius: 10px;
+
+    @media (width<480px) {
+        justify-content: flex-start;
+        font-size: 0.8rem;        
+    }
 }
 
-/* CONTENEDOR TABLA */
+/* CONTENEDOR TABLA 
 .contaTablePed{
     width: 100%;
     max-height: 600px;
     overflow-y: auto;
-    overflow-x: auto; /* scroll horizontal si es necesario */
-    border-radius: 10px;
-    border: 1px solid #e5e5e5;
-}
+    overflow-x: auto;
+}*/
 
 /* TABLA */
 .tablaPedidos {
@@ -1257,17 +1301,19 @@ footer{
     border-collapse: separate;
     border-spacing: 0;
     font-size: 14px;
+
+    @media (width<480px) {
+        margin: 5px 0px 0px;
+    }
 }
 
 /* HEADER STICKY */
 .tablaPedidos thead th {
     position: sticky;
     top: 0;
-    background: #f8f9fa;
     z-index: 20;
     text-align: center;
     font-weight: 600;
-    border-bottom: 2px solid #dee2e6;
 }
 
 /* CELDAS GENERALES */
@@ -1295,11 +1341,26 @@ footer{
     white-space: nowrap;
     text-align: center;
 }
+.contTableInnerNeg table th:nth-child(4),
+.tablaPedidos td:nth-child(4){
+    
+    @media (width<480px) {
+        min-width: 200px;
+    }
+}
+
 .tablaPedidos td:nth-child(8)  /* Total */ {
     max-width: 100px;
 }
 .tablaPedidos td:nth-child(9)  /* estado */ {
     min-width: 100px;
+}
+.tablaPedidos th:nth-child(9), 
+.tablaPedidos td:nth-child(9){
+    
+    @media (width<480px) {
+        min-width: 250px;
+    }
 }
 
 /* DESCRIPCIÓN Y DIRECCIÓN (permitir salto de línea) */
@@ -1335,6 +1396,11 @@ footer{
 .openModalPedido:hover{
     background-color: var(--primary);
     color: var(--text-title);
+}
+.addPedidoBtn{
+    @media (width<1024px) {
+        background: linear-gradient(to top, var(--secondary), white);
+    }
 }
 .modalOverlayPed{
     position: fixed;
@@ -1651,6 +1717,12 @@ footer{
     flex-wrap: wrap;
     gap: 10px;
     margin: 10px 0px;
+    width: 100%;
+
+    @media (width<1024px) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
 }
 .cardDashFnzs{
     background: #fff;

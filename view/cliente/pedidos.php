@@ -154,7 +154,7 @@ if(isset($_POST['eliminar_pedido'])){
                 <h3 class="mt-3">Pedidos</h3>
                 
                 <div class="containerCardsPedidos">
-                    <button class="cardsPedidos openModalPedido">
+                    <button class="cardsPedidos openModalPedido addPedidoBtn">
                         <div class="titleCardPedidos ">Agregar pedido:</div>
                         <div class="rspCardPedido"><span class="iconify-inline" data-icon="lsicon:order-edit-outline"></div>
                     </button>
@@ -183,8 +183,9 @@ if(isset($_POST['eliminar_pedido'])){
                             <a href="?exportar=csv" class="ExpCsvPed">Exportar CSV</a>
                         </div>
                     </section>
-                    <section class="contaTablePed">
-                        <table class="table table-hover table-bordered table-responsive tablaPedidos" id="tablaPedidos">
+
+                    <section class="contTableInner contaTablePed">
+                        <table class="table table-hover tablaPedidos" id="tablaPedidos">
                             <thead>
                                 <tr class="table-primary">
                                     <th>Id</th>
