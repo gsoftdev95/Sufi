@@ -1,0 +1,34 @@
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "DENY"
+  Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# ============================
+# REGLAS NORMALES
+# ============================
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# ============================
+# MODO MANTENIMIENTO
+# ============================
+#RewriteCond %{REQUEST_URI} !mantenimiento.php$
+#RewriteCond %{REQUEST_URI} !\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|ico)$ [NC]
+#RewriteCond %{REQUEST_URI} !css/
+#RewriteCond %{REQUEST_URI} !js/
+#RewriteRule ^.*$ mantenimiento.php [L]
+
+</IfModule>
+
+# Página personalizada para 503 (misma carpeta)
+ErrorDocument 503 mantenimiento.php

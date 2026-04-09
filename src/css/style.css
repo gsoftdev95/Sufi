@@ -1,0 +1,1769 @@
+:root{
+    --primary: #0EA5E9; /* para btns guardar, crear, inisiar sesion, enviar*/
+    --primary-hover: #0284C7; 
+    --secondary: #8B5CF6; /* para btns cancelar volver editar opcines*/
+    --secondary-hover: #7C3AED;
+    --bg: #F8FAFC;
+    --bg-alt:#e9edf1;
+    --text-title: #0F172A;
+    --text-body: #334155;
+
+    --success: #22C55E;
+    --success-hover: #16A34A;
+    --accent: #FB923C;
+    --accent-hover: #F97316;
+    --danger: #EF4444;
+    --danger-hover: #DC2626;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.bodymainLogin{
+    background-color: var(--bg);
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginContainer{
+    min-width: 350px;
+    width: 25%;
+    height: auto;
+    padding: 40px 20px;
+    box-shadow: 0px 0px 10px 1px #e0e0e0;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+
+    @media (width < 480px) {  
+        min-width: 240px;
+        width: 90%;
+    }
+}
+.welcomeText{
+    color: var(--text-title);
+    width: 100%;
+    text-align: left;
+    font-size: 1.5rem;
+
+    @media (width < 480px) {  
+        text-align: center;
+    }
+}
+.welcomeText .highlight {
+    color: var(--text-body);
+    font-size: 3rem;
+    font-weight: 700;
+}
+.welcomeText .highlight img{
+    width: 150px;
+
+}
+.note{
+    font-size: 0.8rem;
+    color: #969696;
+    width: 100%;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+.formLogin{
+    margin: 10px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.errorLogin{
+    font-size: 12px;
+}
+.formLogin input{
+    width: 100%;
+    margin: 8px 0px;
+    height: 30px;
+    padding: 3px 6px;
+    border: 1px solid var(--bg-alt);
+    border-radius: 10px;
+    text-align: left;
+
+    @media (width < 480px) {
+        height: 45px;
+    }
+}
+.formLogin input:focus{
+    outline: none;
+    border: 1px solid #4A90E2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+.formLogin input::placeholder {
+    color: #94A3B8;
+    font-size: 14px;
+}
+/* Contenedor */
+.loginOptions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin: 8px 0px;
+}
+.rememberMe {
+    display: flex;
+    align-items: center;
+    color: #4B5563;
+    cursor: pointer;
+    text-align: left;
+}
+
+.rememberMe input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary);
+    cursor: pointer;
+
+}
+.forgotPassword {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+}
+.forgotPassword:hover {
+    color: var(--secondary-hover);
+    text-decoration: underline;
+}
+.btnPyt{
+    border-radius: 10px;
+    border: none;
+    height: auto;
+    padding: 7px 20px;
+    width:fit-content;
+
+    @media (width < 480px) {
+        font-size: 1rem;
+    }
+}
+.btnAccepted{
+    background-color: var(--primary);
+    color: var(--text-body);
+    font-weight: 600;
+    text-decoration: none;
+}
+.btnLogin{
+    margin: 5px auto;
+    color: var(--bg);
+    box-shadow: -1px -3px 15px #82cff3, 
+                1px 3px 15px #82cff3
+}
+.btnAccepted:hover{
+    background-color: var(--primary-hover);
+}
+
+/*********************/
+/*********************/
+/*********************/
+/****VISTA GESTOR***/
+/****VISTA GESTOR***/
+/****VISTA GESTOR***/
+/*********************/
+/*********************/
+/*********************/
+.bodymainGestor{
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows:auto 1fr auto;
+}
+.sidebarGestor{
+    background-color: var(--text-body);
+    padding: 20px 10px;
+    width: 250px;
+
+    @media (width < 480px) {
+        width: 100%;
+        height: auto;
+        padding: 10px 5px;
+    }
+}
+.bannerPlataforma{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--text-title);
+    box-shadow: 0 2px 6px rgb(36, 36, 36, 0.2);
+    position: relative;
+    z-index: 1;
+}
+.bannerPlataformaInner{
+    max-width: 1500px;
+    width: 100%;
+    height: auto;
+    margin: 10px 0px;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (width<480px) {
+        width: 100%;
+        margin: 5px 0px;
+        padding: 5px 20px;
+    }
+}
+.logoPrincipal{
+    width:100px;
+    color:var(--primary);
+    font-weight: 600;
+}
+.logoPrincipal img{
+    aspect-ratio: 5/3;
+    object-fit: cover;
+    width: 100%;
+}
+.iconAccesos{
+    width:auto;
+    display: flex;
+}
+.iconAccesos a, .iconAccesos div{
+    font-size: 1.5rem;
+    color: var(--bg-alt);
+    margin: 0px 5px;
+    text-decoration: none;
+}
+.iconUsers{
+    margin: 1px 3px;
+    color: var(--bg-alt);
+    font-size: 1.5rem;
+}
+.noti i{
+    color: var(--success);
+}
+.iconAccesos .msg{
+    position: relative;
+    cursor: pointer;
+}
+.numberNotif{
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background-color: var(--secondary);
+    color: white;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+.estadoSuscripcion{
+    position:relative;
+    cursor:pointer;
+}
+.tooltipSuscripcion{
+    position:absolute;
+    top:35px;
+    right:0;
+    background:#fff;
+    color: var(--text-body) !important;
+    border-radius:8px;
+    padding:10px 15px;
+    font-size:1rem !important;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    display:none;
+    white-space:nowrap;
+}
+
+.bussinesSection{
+    background-color: var(--bg-alt);
+    z-index: 0;
+    display: flex;
+    @media (width < 480px) {
+        display: block;
+    }
+}
+.logoSidebar{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+.logoSidebar img{
+    object-fit: cover;
+    height: 100%;
+    aspect-ratio: 5/3;
+}
+.menuGestor{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px;
+
+    @media (width < 480px) {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        margin: 5px 0px;
+    }
+}
+.menuGestor a{
+    color: var(--bg);
+    margin: 10px 0px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 200;
+    transition: background-color 0.2s ease-in-out;
+    max-width: 95%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    line-height: 1;
+
+    @media (width < 480px) {
+        margin: 2px 5px;
+        padding: 2px 5px;
+        flex-direction: column;
+        font-size: 0.8rem;
+    }
+}
+.menuGestor a:hover{
+    background-color: var(--text-title);
+}
+.menuGestor a .iconify-inline{
+    margin-right: 10px;
+    font-size: 1.5rem;
+
+    @media (width < 480px) {
+        margin: 0 auto;
+    }
+}
+.menuGestorText{
+
+    @media (width<480px) {
+        padding: 3px 0px 0px;
+        display: none;
+    }
+}
+
+
+.bodyGestor{
+    background-color: var(--bg-alt);
+    padding: 10px;
+    flex: 1;
+    width: 100%;
+
+    @media (width < 480px) {
+        max-width: 480px;
+        padding: 6px;
+    }
+}
+.userWelcome{
+    background-color: var(--bg);
+    padding: 5px 10px;
+    border-radius: 10px;
+    height: auto;
+    width: 100%;
+
+    @media (width < 480px) {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    h3{
+        @media (width < 480px) {
+            margin-right: 8px;
+        }
+    }
+}
+.userWelcome h3{
+    font-weight: 400;
+    opacity: 0.8;
+}
+.userWelcome h5{
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+
+
+/*****Negocios*****/
+/*****Negocios*****/
+/*****Negocios*****/
+/*****Negocios*****/
+/*****Negocios*****/
+/*****Negocios*****/
+
+.containerCardsNegocio{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0px;
+    gap: 10px;
+    width: 100%;
+
+    @media (width<1024px) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+.cardNegocio{    
+    background-color: var(--bg);
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (width<480px) {
+        padding: 6px;
+        height: auto;
+    }
+}
+.titleCardNegocio{
+    font-size: 1rem;
+    margin: 1px;
+}
+.rspCard{
+    font-size: 2.5rem;
+}
+.iconCardNegocio{
+    font-size: 2.5rem;
+}
+.crearClienteBtn{
+
+    @media (width<1024px) {
+        background: linear-gradient(to top, var(--secondary), white);
+    }
+}
+.crearClienteBtn:hover{
+    background-color: var(--primary);
+    color: var(--text-title);
+}
+.containerTableNegocio{ 
+    background-color: var(--bg);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+
+}
+.containerFormSearNeg{
+    width: 100%;
+}
+.negociosSearchForm{
+    display: flex;
+    flex-wrap: wrap;
+
+    @media (width<480px) {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 6px;
+        width: 90%;
+    }
+    
+}
+.negociosSearchForm input{
+    max-width: clamp(300px, 50vw, 500px);
+}
+.negociosSearchForm select{
+    padding: 2px 10px;
+}
+.btnSearchFormNeg{
+    background-color: var(--success);
+    margin: 0px 5px;
+
+    @media (width<480px) {
+        grid-column: span 2;
+        width: 100%;
+        margin: 0px;
+    }
+}
+.contTableInner{
+    width: 100%;
+
+    @media (width<480px) {
+        width: 400px;
+        overflow: hidden;
+        overflow-x: auto;
+    }
+    @media (width<400px) {
+        width: 350px;
+        overflow: hidden;
+        overflow-x: auto;
+    }
+}
+.contTableInnerNeg table{
+    width: 100%;
+}
+.contTableInnerNeg table th, .contTableInnerNeg table td{
+    @media (width<480px) {
+        max-height: 50px;
+    }
+}
+.contTableInnerNeg table th:nth-child(1), 
+.contTableInnerNeg table td:nth-child(1){
+    
+    @media (width<480px) {
+        min-width: auto;
+    }
+}
+.contTableInnerNeg table th:nth-child(3), 
+.contTableInnerNeg table td:nth-child(3),
+.contTableInnerNeg table th:nth-child(7), 
+.contTableInnerNeg table td:nth-child(7),
+.contTableInnerNeg table th:nth-child(9), 
+.contTableInnerNeg table td:nth-child(9){
+    
+    @media (width<480px) {
+        min-width: 200px;
+    }
+}
+.iconTabNeg{
+    margin: 0px 7px;
+    font-size: 2rem;
+}
+
+/*modal*/
+.modalOverlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modalContent{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+.closeModal{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+@keyframes fadeIn{
+    from{ transform: scale(0.9); opacity: 0; }
+    to{ transform: scale(1); opacity: 1; }
+}
+
+.btnCrearCliente{
+    border: none;
+    background-color: var(--success);
+    border-radius: 10px;
+    padding: 8px;
+}
+.btnCrearCliente:hover{
+    background-color: var(--success-hover);
+}
+
+/* modal ver negocio*/
+.openModalViewNeg{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.openModalViewNeg:hover{
+    color: var(--text-title);
+    background-color: var(--bg);
+}
+.modalViewNegocio{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modalcontentViewNeg{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    animation: fadeViewNeg 0.3s ease;
+}
+.closeModalViewNeg{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.modalcontentViewNeg div h6{
+    font-weight: bolder;
+}
+
+@keyframes fadeViewNeg{
+    from{ transform: scale(0.9); opacity: 0; }
+    to{ transform: scale(1); opacity: 1; }
+}
+
+/* modal editar negocio*/
+.openModalEditNeg{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.openModalEditNeg:hover{
+    color: var(--text-title);
+    background-color: var(--bg);
+}
+.modalEditNeg{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modalContentEditNeg{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    animation: fadeEditNeg 0.3s ease;
+}
+.closeModalEditNeg{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.modalContentEditNeg div h6{
+    font-weight: bolder;
+}
+
+@keyframes fadeEditNeg{
+    from{ transform: scale(0.9); opacity: 0; }
+    to{ transform: scale(1); opacity: 1; }
+}
+.btnUpNegocio{
+    background-color: var(--success);
+    border: none;
+    border-radius: 10px;
+    padding: 5px 15px;
+}
+.btnUpNegocio:hover{
+    background-color: var(--success-hover);
+}
+
+/* modal eliminar negocio*/
+.openModalDeleteNeg{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.openModalDeleteNeg:hover{
+    color: var(--text-title);
+    background-color: var(--bg);
+}
+.modalDeleteNeg{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modalContentDeleteNeg{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    animation: fadeEditNeg 0.3s ease;
+}
+.closeModalDeleteNeg{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.modalContentDeleteNeg div h6{
+    font-weight: bolder;
+}
+
+@keyframes fadeEditNeg{
+    from{ transform: scale(0.9); opacity: 0; }
+    to{ transform: scale(1); opacity: 1; }
+}
+
+/*********************/
+/*********************/
+/*********************/
+/********FOOTER*******/
+/********FOOTER*******/
+/********FOOTER*******/
+/*********************/
+/*********************/
+/*********************/
+
+
+
+
+footer{
+    background-color: black;
+}
+
+
+/*********************/
+/*********************/
+/*********************/
+/****SUSCRIPCIONES****/
+/****SUSCRIPCIONES****/
+/****SUSCRIPCIONES****/
+/*********************/
+/*********************/
+/*********************/
+
+.containerTableSuscripciones{
+    width: 100%;
+    padding: 10px;
+    background-color: var(--bg);
+    border-radius: 10px;    
+    margin: 10px 0px;
+}
+.containerFormSearSus{
+    background-color: var(--bg);
+    width: 100%;
+}
+
+.suscripSearchForm{
+    display: flex;
+
+    @media (width<480px) {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 6px;
+        width: 90%;
+    }
+}
+.suscripSearchForm input{
+    max-width: clamp(300px, 50vw, 500px);
+}
+.btnSearchFormSus{
+    background-color: var(--success);
+    margin: 0px 5px;
+
+    @media (width<480px) {
+        grid-column: span 2;
+        width: 100%;
+        margin: 0px;
+    }
+}
+
+
+
+.contTableInnerSuscrip table{
+    width: 100%;
+}
+.contTableInnerSuscrip table th, .contTableInnerSuscrip table td{
+    @media (width<480px) {
+        max-height: 50px;
+    }
+}
+.contTableInnerSuscrip table th:nth-child(1), 
+.contTableInnerSuscrip table td:nth-child(1){
+    
+    @media (width<480px) {
+        min-width: auto;
+    }
+}
+.contTableInnerSuscrip table th:nth-child(3), 
+.contTableInnerSuscrip table td:nth-child(3),
+.contTableInnerSuscrip table th:nth-child(4), 
+.contTableInnerSuscrip table td:nth-child(4){
+    
+    @media (width<480px) {
+        min-width: 150px;
+    }
+}
+
+/*modal*/
+.modalOverlayNegRenovacion{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modalRenovacion{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    animation: fadeInnegocio 0.3s ease;
+}
+.closeModalNegocio{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+@keyframes fadeInnegocio{
+    from{ transform: scale(0.9); opacity: 0; }
+    to{ transform: scale(1); opacity: 1; }
+}
+
+
+/*********************/
+/*********************/
+/*********************/
+/****NOTIFICACIONES****/
+/****NOTIFICACIONES****/
+/****NOTIFICACIONES****/
+/*********************/
+/*********************/
+/*********************/
+
+.containerCardsNotificaciones{    
+    display: flex;
+    margin: 10px 0px;
+    gap: 10px;
+    width: 100%;
+}
+.cardNoti{     
+    background-color: var(--bg);
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (width<480px) {
+    max-width: 150px;
+    padding: 6px;
+    height: auto;
+    }
+}
+.crearNotiBtn{
+    cursor: pointer;
+
+    @media (width<1024px) {
+        background: linear-gradient(to top, var(--secondary), white);
+    }
+}
+.crearNotiBtn:hover{
+    background-color: var(--primary);
+    color: var(--text-title);
+
+}
+.containerTableNotificaciones{
+    background-color: var(--bg);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    margin: 10px 0px;
+}
+.containerFormSearNot{
+    width: 100%;
+    background-color: red;
+    display: none;
+}
+
+.contTableInnerNot table{  
+    width: 100%;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+/*modal*/
+.modalOverlayCrearNoti{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modalContentCrearNoti{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    animation: fadeInCrearNoti 0.3s ease;
+}
+.closeModalCrearNoti{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+@keyframes fadeInCrearNoti{
+    from{ transform: scale(0.9); opacity: 0; }
+    to{ transform: scale(1); opacity: 1; }
+}
+.formCrearNoti{
+    display: flex;
+    flex-direction: column;
+}
+
+.EnviarNoti{
+    border: none;
+    background-color: var(--success);
+    border-radius: 10px;
+    padding: 8px;
+}
+.EnviarNoti:hover{
+    background-color: var(--success-hover);
+}
+
+/*modal cliente*/
+.modalNotificaciones{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+.cerrarModalNoti{
+    cursor: pointer;
+}
+.modalContenidoNotificaciones{
+    background:white;
+    width:380px;
+    max-height:80vh;
+    overflow-y:auto;
+    border-radius:10px;
+    padding:15px;
+}
+.notaNoti{
+    font-size: 10px;
+    padding: 0;
+    line-height: 0;
+    color: rgb(170, 170, 170);
+}
+.cardNotificacion{
+    border-bottom:1px solid #eee;
+    padding: 10px 20px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+}
+.cardNotificacion.noLeida{
+    cursor: pointer;
+    background:#f1f7ff;
+    border-left: 4px solid #0d6efd;
+}
+.cardNotificacion.leida{
+    opacity: 0.6;
+}
+.tituloNoti{
+    font-weight: bolder;
+}
+
+/*********************/
+/*********************/
+/*********************/
+/*****FACTURACION*****/
+/*****FACTURACION*****/
+/*****FACTURACION*****/
+/*********************/
+/*********************/
+/*********************/
+
+.containerCardsFacturacion{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0px;
+    gap: 10px;
+    width: 100%;
+
+    @media (width<1024px) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+}
+.cardFacturacion{
+    background-color: var(--bg);
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+
+    @media (width<480px) {
+        padding: 6px;
+        height: auto;
+    }
+}
+.registrarPagoBtn{
+    cursor: pointer;
+
+    @media (width<1024px) {
+        background: linear-gradient(to top, var(--secondary), white);
+    }
+}
+.containerCardsFacturacion button:hover{
+    background-color: var(--primary);
+    color: var(--text-title);
+}
+.titleCardsFact{
+    font-size: 1rem;
+    margin: 1px;
+    text-align: left;
+}
+.rspCardFact{
+    font-size: 2.5rem;
+    text-align: left;
+}
+.containerTableFact{
+    width: 100%;
+    padding: 10px;
+    background-color: var(--bg);
+    border-radius: 10px;
+    margin: 10px 0px;
+}
+
+.contTableInnerFact table{
+    width: 100%;
+}
+.contTableInnerFact table th, .contTableInnerFact table td{
+    @media (width<480px) {
+        max-height: 50px;
+    }
+}
+
+
+/*modal editar pedido*/
+.modalRegistroPago{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modalcontentRegistroPago{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    animation: fadeRegPago0.3s ease;
+}
+.closeModalRegPago{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.modalcontentRegistroPago form label{
+    font-weight:lighter
+}
+@keyframes fadeRegPago0{
+    from{ transform: scale(0.9); opacity: 0; }
+    to{ transform: scale(1); opacity: 1; }
+}
+.btnGrdPago{
+    margin: 10px 0px;
+    padding: 7px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--success);
+    &:hover{        
+        background-color: var(--success-hover);
+    }
+}
+/********DASHBOARD******/
+/********DASHBOARD******/
+/********DASHBOARD******/
+/********DASHBOARD******/
+/********DASHBOARD******/
+
+.containerCardsDash {
+    display: flex; /* Usar flexbox para las tarjetas */
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cardDash {
+    background: #fff;
+    flex-grow: 1;
+    flex-basis: 200;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.cardTitle {
+    font-size: 14px;
+    color: #666;
+}
+.cardValue {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.sectionChartsDash {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(450px, 1fr));
+    gap: 10px;
+    margin: 10px 0px;
+}
+.chartBox {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.chartBox canvas{
+    width: 100%;
+    height: 100%;
+}
+
+/*********************/
+/*********************/
+/*********************/
+/*******PEDIDOS*******/
+/*******PEDIDOS*******/
+/*******PEDIDOS*******/
+/*********************/
+/*********************/
+/*********************/
+.containerCardsPedidos{
+    display: flex;
+    margin: 10px 0px;
+    gap: 10px;
+}
+.cardsPedidos{    
+    background-color: var(--bg);
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.titleCardPedidos{
+    font-size: 1rem;
+    margin: 1px;
+    text-align: left;
+}
+.rspCardPedido{
+    font-size: 2.5rem;
+    text-align: left;
+}
+.containerTablePedidos{ 
+    background-color: var(--bg);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+}
+.containerFormSearPed{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.pedidosSearchForm{
+    width: 100%;
+    display: flex;
+}
+.pedidosSearchForm input{
+    max-width: clamp(300px, 50vw, 500px);
+}
+.pedidosSearchForm select{
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;  
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.btnSearchFormPed{
+    background-color: var(--success);
+    margin: 0px 5px;
+}
+.btnSearchFormPed:hover{
+    background-color: var(--success-hover);
+}
+.contDocsPed{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.ExpCsvPed{
+    text-decoration: none;
+    width: 150px;
+    background-color: var(--text-body);
+    border: none;
+    padding: 8px 18px;
+    color: var(--bg);
+    border-radius: 10px;
+}
+
+/* CONTENEDOR TABLA */
+.contaTablePed{
+    width: 100%;
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: auto; /* scroll horizontal si es necesario */
+    border-radius: 10px;
+    border: 1px solid #e5e5e5;
+}
+
+/* TABLA */
+.tablaPedidos {
+    width: 100%;
+    min-width: 1000px; /* evita que se comprima demasiado */
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 14px;
+}
+
+/* HEADER STICKY */
+.tablaPedidos thead th {
+    position: sticky;
+    top: 0;
+    background: #f8f9fa;
+    z-index: 20;
+    text-align: center;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+}
+
+/* CELDAS GENERALES */
+.tablaPedidos th,
+.tablaPedidos td {
+    padding: 10px 12px;
+    vertical-align: middle;
+    border-bottom: 1px solid #eee;
+}
+
+/* HOVER FILAS */
+.tablaPedidos tbody tr:hover {
+    background-color: #f5f7fa;
+    transition: 0.2s ease-in-out;
+}
+
+/* COLUMNAS CORTAS */
+.tablaPedidos td:nth-child(1), /* Id */
+.tablaPedidos td:nth-child(2), /* Cliente */
+.tablaPedidos td:nth-child(5), /* Fecha */
+.tablaPedidos td:nth-child(6), /* Precio */
+.tablaPedidos td:nth-child(7), /* Cantidad */
+.tablaPedidos td:nth-child(8),  /* Total */
+.tablaPedidos td:nth-child(10) /* Accion */{
+    white-space: nowrap;
+    text-align: center;
+}
+.tablaPedidos td:nth-child(8)  /* Total */ {
+    max-width: 100px;
+}
+.tablaPedidos td:nth-child(9)  /* estado */ {
+    min-width: 100px;
+}
+
+/* DESCRIPCIÓN Y DIRECCIÓN (permitir salto de línea) */
+.tablaPedidos td:nth-child(2),
+.tablaPedidos td:nth-child(3) {
+    white-space: normal; /* permite salto */
+    word-break: break-word; /* corta palabras largas */
+    max-width: 250px;
+}
+
+/* SCROLL MÁS LIMPIO */
+.contaTablePed::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+.contaTablePed::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.contaTablePed::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+
+/*modal agregar pedidos*/
+
+.openModalPedido{
+    cursor: pointer;
+    border: none;
+}
+.openModalPedido:hover{
+    background-color: var(--primary);
+    color: var(--text-title);
+}
+.modalOverlayPed{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modalContentPed{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    animation: fadePed 0.3s ease;
+}
+.titleModal{
+    color: var(--text-title);
+    font-weight: 600;
+}
+.closeModalPed{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+@keyframes fadePed{
+    from{ transform: scale(0.9); opacity: 0; }
+    to{ transform: scale(1); opacity: 1; }
+}
+.btnAddPedido{
+    border: none;
+    background-color: var(--success);
+    border-radius: 10px;
+    padding: 5px 15px;
+    transition: background-color 0.2s ease-in-out;
+}
+.btnAddPedido:hover{
+    background-color: var(--success-hover);
+}
+.estado {
+    width: 100%;
+    max-width: 150px;
+    padding: 7px 15px;
+    border-radius: 20px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.estado-pendiente {
+    background-color: rgb(169, 169, 169, 0.5);
+    border: 1px solid  rgb(169, 169, 169);
+}
+.estado-confirmado {
+    background-color: rgb(255, 255, 44, 0.5);
+    border: 1px solid rgb(255, 255, 44);
+}
+.estado-en_proceso {
+    background-color: rgb(91, 192, 222, 0.5);
+    border: 1px solid  rgb(91, 192, 222);
+}
+.estado-enviado {
+    background-color: rgb(251, 146, 60, 0.5);
+    border: 1px solid  rgb(251, 146, 60);
+}
+.estado-entregado {
+    background-color: rgb(34, 197, 94, 0.5);
+    border: 1px solid  rgb(34, 197, 94);
+}
+.estado-cancelado {
+    background-color: rgb(239, 68, 68, 0.5);
+    border: 1px solid  rgb(239, 68, 68);
+}
+
+.checkEstado{
+    border: none;
+    background-color: transparent;
+    font-size: 1.2rem;
+}
+
+
+/*modal ver pedido*/
+.openModalViewPedido{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.openModalViewPedido:hover{
+    color: var(--text-title);
+    background-color: var(--bg);
+}
+.modalViewPedidos{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modalContentviewPed{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    animation: fadeViewPed 0.3s ease;
+}
+.closeModalViewPed{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.modalContentviewPed div h6{
+    font-weight: bolder;
+}
+
+@keyframes fadeViewPed{
+    from{ transform: scale(0.9); opacity: 0; }
+    to{ transform: scale(1); opacity: 1; }
+}
+
+/*modal editar pedido*/
+.openModalEditPedido{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.openModalEditPedido:hover{
+    color: var(--text-title);
+    background-color: var(--bg);
+}
+.modalEditPedidos{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modalContentEditPed{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    animation: fadeEditPed 0.3s ease;
+}
+.closeModalEditPed{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.modalContentEditPed form label{
+    font-weight: bolder;
+}
+@keyframes fadeEditPed{
+    from{ transform: scale(0.9); opacity: 0; }
+    to{ transform: scale(1); opacity: 1; }
+}
+.btnUpdPedido{
+    border: none;
+    background-color: var(--success);
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px 15px;
+    transition: background-color 0.2s ease-in-out;
+}
+.btnUpdPedido:hover{
+    background-color: var(--success-hover);
+}
+
+/*modal eliminar pedido*/
+.openModalDeletePedido{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.openModalDeletePedido:hover{
+    color: var(--text-title);
+    background-color: var(--bg);
+}
+.modalDeletePedidos{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modalContentDeletePed{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    animation: fadeDelPed 0.3s ease;
+}
+.iconAlert{
+    color: var(--danger);
+}
+.btnEliminar{
+    background-color: var(--danger);
+    border-radius: 10px;
+}
+.btnEliminar:hover{
+    background-color: var(--danger-hover);
+    border-radius: 10px;
+}
+.closeModalDeletePed{
+    cursor: pointer;
+    font-size: 20px;
+    border: 2px solid var(--text-title);
+    color: var(--text-title);
+}
+.closeModalDeletePed:hover{
+    background-color: var(--text-body);
+    color: var(--bg-alt);
+}
+.modalContentDeletePed form label{
+    font-weight: bolder;
+}
+
+@keyframes fadeDelPed{
+    from{ transform: scale(0.9); opacity: 0; }
+    to{ transform: scale(1); opacity: 1; }
+}
+
+/*modal link de pedido*/
+.openModalLinkPedido{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.openModalLinkPedido:hover{
+    color: var(--text-title);
+    background-color: var(--bg);
+}
+.modalLinkPedido{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modalContentLinkPed{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    animation: fadeLinkPed 0.3s ease;
+}
+.closeModalLinkPed{
+    cursor: pointer;
+    font-size: 20px;
+    border: 2px solid var(--text-title);
+    color: var(--text-title);
+}
+.closeModalLinkPed:hover{
+    background-color: var(--text-body);
+    color: var(--bg-alt);
+}
+.modalContentLinkPed form label{
+    font-weight: bolder;
+}
+
+@keyframes fadeLinkPed{
+    from{ transform: scale(0.9); opacity: 0; }
+    to{ transform: scale(1); opacity: 1; }
+}
+.btnCopyLink{
+    background-color: var(--bg-alt);
+    color: var(--text-body);
+    font-size: 1.4rem;
+    height: auto;
+    border-radius: 5px;
+    padding: 2px;
+    border: none;
+    height: 38px;
+    width:38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/***** FINANZAS *****/
+/***** FINANZAS *****/
+/***** FINANZAS *****/
+/***** FINANZAS *****/
+/***** FINANZAS *****/
+
+.containerCardsFnzs{
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0px;
+}
+.cardDashFnzs{
+    background: #fff;
+    flex-grow: 1;
+    flex-basis: 200;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.cardTitleFnzs{
+    font-size: 14px;
+    color: #666;
+}
+.cardValueFnzs{    
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.containertableFinanzas{
+    background-color: var(--bg);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+
+
+
+
+/*********MANUAL******/
+/*********MANUAL******/
+/*********MANUAL******/
+/*********MANUAL******/
+/*********MANUAL******/
+.containerManual{
+    background-color: var(--bg-alt);
+}
+.manualSection{
+    background-color: var(--bg);
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--text-body);
+    margin: 10px 0px;
+}
+.iconHelloManual{
+    color: var(--primary);
+    font-size: 2.5rem;
+}
+.TitleManual{
+    font-weight: bolder;
+}
+.subTitleManual{
+    font-weight: bolder;
+    color: var(--primary);
+}
+.manualSection h6{
+    font-weight: bold;
+}
+
+
+
+/*********CUENTA VENCIDA*********/
+/*********CUENTA VENCIDA*********/
+/*********CUENTA VENCIDA*********/
+/*********CUENTA VENCIDA*********/
+/*********CUENTA VENCIDA*********/
+/*********CUENTA VENCIDA*********/
+/*********CUENTA VENCIDA*********/
+
+.suscripcionVencidaContainer{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#f4f6f9;
+}
+
+.suscripcionCard{
+    background:var(--text-title);
+    padding:40px;
+    border-radius:12px;
+    text-align:center;
+    max-width:450px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.iconoAlerta{
+    font-size:50px;
+    margin-bottom:10px;
+    color: var(--danger);
+}
+
+.suscripcionCard h1{
+    margin-bottom:15px;
+    color: var(--primary);
+}
+
+.suscripcionCard p{
+    color:var(--bg-alt);
+    margin-bottom:10px;
+}
+
+.accionesSuscripcion{
+    margin-top:20px;
+}
+
+.btnSalir{
+    display:inline-block;
+    padding:10px 20px;
+    background:var(--danger);
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+}

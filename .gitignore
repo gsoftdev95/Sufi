@@ -1,0 +1,16 @@
+# Archivos que no deben subirse
+partials/conexionBD.php
+# Ignorar carpetas que no deben subirse
+archivos/
+bd/
+controllers/
+
+# Ignorar archivos de video pesados
+*.mp4
+*.MP4
+*.mov
+*.MOV
+
+# Ignorar archivos de configuración locales
+config.php
+.env
