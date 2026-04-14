@@ -45,6 +45,16 @@ controlAcceso($bd, ['cliente']);
                         </p>
                     </section>
 
+                    <!-- DEFINICIONES -->
+                    <section class="manualSection">
+                        <h5 class="subTitleManual">Definiciones de uso</h5>
+                        <p>
+                            Para efectos del presente sistema, se entenderá como <strong>EL PROVEEDOR</strong> a G-SOFT, empresa desarrolladora y propietaria de la plataforma SUFI; 
+                            como <strong>EL CLIENTE</strong> al emprendedor o negocio que adquiere y utiliza el sistema para la gestión de sus pedidos; 
+                            y como <strong>EL USUARIO FINAL</strong> a la persona que realiza pedidos a los productos o servicios ofrecidos por EL CLIENTE.
+                        </p>
+                    </section>
+
                     <!-- DASHBOARD -->
                     <section class="manualSection">
                         <h5 class="subTitleManual">¿Qué es el Dashboard?</h5>
@@ -115,11 +125,16 @@ controlAcceso($bd, ['cliente']);
                             <li>Mantén actualizados los estados de tus pedidos.</li>
                             <li>Registra todos tus pedidos para tener control real de tus ingresos.</li>
                             <li>Revisa el Dashboard con frecuencia para entender el crecimiento de tu negocio.</li>
-                            <li>Promueve siempre una atención honesta, transparente y responsable con tus clientes. G-SOFT, como desarrollador de SUFI, no se hará responsable por prácticas indebidas, fraudes o incumplimientos de la tienda hacia sus clientes finales. En caso de denuncias públicas o comentarios negativos que evidencien malas prácticas, G-SOFT se reserva el derecho de suspender o finalizar el convenio con el emprendedor.</li>
+                            <li>
+                                Promueve siempre una atención honesta, transparente y responsable con tus clientes. 
+                                G-SOFT, en su calidad de PROVEEDOR de la plataforma SUFI, no se hará responsable por prácticas indebidas, fraudes o incumplimientos del CLIENTE hacia sus USUARIOS FINALES. 
+                                En caso de denuncias, reclamos formales o investigaciones por parte de autoridades competentes, el PROVEEDOR se verá en la obligación de proporcionar la información y datos necesarios que le sean requeridos conforme a la normativa vigente. 
+                                Asimismo, ante evidencias de malas prácticas, el PROVEEDOR se reserva el derecho de suspender o finalizar el acceso del CLIENTE a la plataforma.
+                            </li>
                         </ul>
                     </section>
 
-                    <!-- SOPORTE -->
+                    <!-- FAQ -->
                     <section class="manualSection">
                         <h5  class="subTitleManual">Preguntas Frecuentes</h5>
                         <p><strong>¿Puedo editar un pedido después de crearlo?</strong><br>

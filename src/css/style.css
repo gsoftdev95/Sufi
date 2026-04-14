@@ -219,7 +219,13 @@
     width:100px;
     color:var(--primary);
     font-weight: 600;
+
+    @media (max-width: 480px) {
+        content: url("../../src/img/logo_admin/3.1_sf.png");
+        max-width: 50px;
+    }
 }
+
 .logoPrincipal img{
     aspect-ratio: 5/3;
     object-fit: cover;
@@ -1838,4 +1844,83 @@ footer{
     color:white;
     text-decoration:none;
     border-radius:6px;
+}
+
+
+/**********RECUPERAR CONTRASEÑA*********/
+/**********RECUPERAR CONTRASEÑA*********/
+/**********RECUPERAR CONTRASEÑA*********/
+/**********RECUPERAR CONTRASEÑA*********/
+/**********RECUPERAR CONTRASEÑA*********/
+.recuperarContainer{
+    background-color: var(--bg-alt);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.recuperarInner{
+    background-color: var(--bg);
+    border-radius: 10px;
+    padding: 20px;
+    width: 500px;
+    height: auto;
+    box-shadow: 0px 0px 10px 1px #e0e0e0;
+    
+    @media (width <480px) {
+        width: 90%;
+    }
+}
+.recuperarInner img{
+    width: 200px;
+}
+.recuperarInner p{
+    font-size: 0.9rem;
+    color: #999;
+}
+.recuperarInner form button{
+    background-color: var(--primary);
+    border: none;
+    border-radius: 10px;
+    padding: 5px 15px;
+    color: var(--bg);
+}
+
+/********** RESETEAR CONTRASEÑA*********/
+/********** RESETEAR CONTRASEÑA*********/
+/********** RESETEAR CONTRASEÑA*********/
+/********** RESETEAR CONTRASEÑA*********/
+/********** RESETEAR CONTRASEÑA*********/
+
+.resetContainer{
+    background-color: var(--bg-alt);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.resetContaineInner{
+    background-color: var(--bg);
+    border-radius: 10px;
+    padding: 20px;
+    width: 500px;
+    height: auto;
+    box-shadow: 0px 0px 10px 1px #e0e0e0;
+ 
+}
+.resetContaineInner img{
+    width: 200px;
+}
+.resetContaineInner p{
+    font-size: 0.9rem;
+    color: #999;
+}
+.resetContaineInner form button{
+    background-color: var(--primary);
+    border: none;
+    border-radius: 10px;
+    padding: 5px 15px;
+    color: var(--bg);
 }

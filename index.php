@@ -104,7 +104,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </label>
                         -->
 
-                    <a href="#" class="forgotPassword">
+                    <a href="./recuperar_contraseña.php" class="forgotPassword">
                         ¿Olvidaste tu contraseña?
                     </a>
                 </div>
