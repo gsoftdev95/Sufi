@@ -28,12 +28,20 @@
     align-items: center;
     justify-content: space-between;
     background-color: var(--text-title);
+    
+    @media (width<480px) {        
+        padding: 0px 10px;
+    }
 }
 .logoPrincipal{
     max-width: 1500px;
     color:var(--bg-alt);
     font-weight: 600;
     padding: 0px 20px;
+
+    @media (width<480px) {        
+        padding: 0px;
+    }
 }
 .logoPrincipal img{
     aspect-ratio: 5/3;
@@ -45,6 +53,9 @@
     align-items: center;
     gap: 10px;
     color: var(--bg);
+    @media (width<480px) {        
+        padding: 0px ;
+    }
 }
 .Seguimiento_logoNeg img{
     width: 100px;    
@@ -67,6 +78,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (width<480px) {
+        height: 600px;
+    }
 }
 .containerSeguimientoInner{
     background-color: var(--bg);
@@ -75,6 +90,12 @@
     height: auto;
     border-radius: 10px;
     padding: 30px 50px;
+
+    @media (width<480px) {
+        margin: 40px auto;
+        width: 90%;
+        padding: 10px 20px;
+    }
 }
 .containerSeguimientoInner h1{
     text-align: center;
@@ -93,11 +114,19 @@
 .iconcheckSeguimiento{
     color: var(--success);
     font-size: 3rem;
+
+    @media (width<480px) {
+        font-size: 2rem;
+    }
 }
 .containerDetailsOrder p{
     padding: 1px;
     height: 100%;
     line-height: auto;
+
+    @media (width<480px) {
+        font-size: 0.9rem;
+    }
 }
 .viewEstdClntFinal{
     background-color: var(--bg-alt);
@@ -108,7 +137,36 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media (width<480px) {
+        padding: 10px 30px;
+    }
 }
+.viewEstdClntFinal p{
+    @media (width<480px) {
+        font-size: 0.9rem;
+
+    }
+}
+.zoom-effect {
+    padding-left: 10px;
+    font-size: 1.2rem;
+    display: inline-block; /* Necesario para que la transformación funcione correctamente */
+    animation: zoomInOut 1s infinite; /* Duración de 1 segundo, se repite indefinidamente */
+}
+
+@keyframes zoomInOut {
+    0% {
+        transform: scale(1); /* Tamaño original */
+    }
+    50% {
+        transform: scale(1.1); /* Aumenta un 10% */
+    }
+    100% {
+        transform: scale(1); /* Regresa al tamaño original */
+    }
+}
+
 .viewEstdClntFinal p strong{
     color: var(--primary);
 }

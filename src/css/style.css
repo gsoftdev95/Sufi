@@ -181,6 +181,9 @@
     background-color: var(--text-body);
     padding: 20px 10px;
     width: 250px;
+    @media (width < 1600px) {
+        width: 180px;
+    }
 
     @media (width < 480px) {
         width: 100%;
@@ -222,7 +225,7 @@
 
     @media (max-width: 480px) {
         content: url("../../src/img/logo_admin/3.1_sf.png");
-        max-width: 50px;
+        max-width: 40px;
     }
 }
 
@@ -643,24 +646,47 @@
     padding: 30px;
     border-radius: 10px;
     width: 400px;
-    max-width: 90%;
+    max-width: 95%;
+    max-height: 85vh;
+    overflow-y: auto;
     position: relative;
     animation: fadeEditNeg 0.3s ease;
 }
-.closeModalEditNeg{
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    cursor: pointer;
-    font-size: 20px;
+.modalContentEditNeg::-webkit-scrollbar {
+    width: 0;
 }
-.modalContentEditNeg div h6{
+
+.modalContentEditNeg {
+    scrollbar-width: none; /* Firefox */
+}
+.closeModalEditNeg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: none; /* ya lo controlas con JS */
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+.modalContentEditNeg div h5{
     font-weight: bolder;
 }
 
 @keyframes fadeEditNeg{
     from{ transform: scale(0.9); opacity: 0; }
     to{ transform: scale(1); opacity: 1; }
+}
+.modalContentEditNeg form{
+    overflow-y: scroll;
+
+}
+.card-img-top{
+    width: 100px;
 }
 .btnUpNegocio{
     background-color: var(--success);
@@ -897,10 +923,12 @@ footer{
     display: none;
 }
 
+.contTableInnerNot{
+    max-height: 500px;
+    overflow-y: auto;
+}
 .contTableInnerNot table{  
     width: 100%;
-    max-height: 500px;
-    overflow-y: scroll;
 }
 
 /*modal*/
@@ -1233,18 +1261,23 @@ footer{
 
     @media (width<480px) {
         flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding:10px 0px;
     }
 }
 .pedidosSearchForm{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    margin: 20px 0px 30px 0px;
 
     @media (width<480px) {
         display: grid;
         grid-template-columns: repeat(2, auto);
         gap: 6px;
         width: 90%;
+        margin: 10px 0px;
     }
 }
 .pedidosSearchForm input{
@@ -1255,6 +1288,7 @@ footer{
     border-radius: 6px;  
     box-sizing: border-box;
     cursor: pointer;
+    padding:0px 10px;
 }
 .btnSearchFormPed{
     background-color: var(--success);
@@ -1363,6 +1397,9 @@ footer{
 }
 .tablaPedidos th:nth-child(9), 
 .tablaPedidos td:nth-child(9){
+    @media (width<1600px) {
+        width: 200px;
+    }
     
     @media (width<480px) {
         min-width: 250px;
@@ -1370,11 +1407,11 @@ footer{
 }
 
 /* DESCRIPCIÓN Y DIRECCIÓN (permitir salto de línea) */
-.tablaPedidos td:nth-child(2),
-.tablaPedidos td:nth-child(3) {
+.tablaPedidos td:nth-child(3),
+.tablaPedidos td:nth-child(4) {
     white-space: normal; /* permite salto */
     word-break: break-word; /* corta palabras largas */
-    max-width: 250px;
+    max-width: 220px;
 }
 
 /* SCROLL MÁS LIMPIO */
@@ -1415,7 +1452,7 @@ footer{
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1000;    
 }
 .modalContentPed{
     background: white;
@@ -1453,7 +1490,7 @@ footer{
 }
 .estado {
     width: 100%;
-    max-width: 150px;
+    max-width: 140px;
     padding: 7px 15px;
     border-radius: 20px;
     border: none;
@@ -1521,6 +1558,11 @@ footer{
     max-width: 90%;
     position: relative;
     animation: fadeViewPed 0.3s ease;
+    
+    @media (width < 480px) {
+        max-height: 600px;
+        overflow-y: auto;
+    }
 }
 .closeModalViewPed{
     position: absolute;
@@ -1885,6 +1927,12 @@ footer{
     border-radius: 10px;
     padding: 5px 15px;
     color: var(--bg);
+}
+.mensaje-recuperacion{
+    background-color: rgb(143, 217, 143,0.6);
+    border-radius: 10px;
+    padding: 5px;
+    color: var(--success-hover);
 }
 
 /********** RESETEAR CONTRASEÑA*********/

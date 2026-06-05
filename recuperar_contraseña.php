@@ -73,7 +73,7 @@
         <script>
             setTimeout(() => {
                 window.location.href = "index.php";
-            }, 20000); // 30 segundos
+            }, 15000); // 15 segundos
         </script>
     <?php endif; ?>
 

@@ -27,7 +27,7 @@ if (isset($_GET['exportar']) && $_GET['exportar'] === 'csv') {
         'Cantidad',
         'Total',
         'Estado'
-    ]);
+    ], ';');
 
     foreach ($pedidosExport as $ped) {
         fputcsv($output, [
@@ -39,7 +39,7 @@ if (isset($_GET['exportar']) && $_GET['exportar'] === 'csv') {
             $ped['cantidad'],
             $ped['total'],
             $ped['estado_nombre']
-        ]);
+        ], ';');
     }
 
     fclose($output);
@@ -168,7 +168,7 @@ if(isset($_POST['eliminar_pedido'])){
 
                 <section class="containerTablePedidos">
                     <section class="containerFormSearPed">
-                        <form class="pedidosSearchForm mt-3 mb-4" role="search" action="#" method="GET">
+                        <form class="pedidosSearchForm" role="search" action="#" method="GET">
                             <input class="form-control me-2" type="search" placeholder="Buscador..." aria-label="Search" name="busquedaPedidos">
                             <select name="tipoBusquedaPedidos" id="tipoBusquedaPedidos">
                                 <option value="publico_final">Por cliente</option>
@@ -698,8 +698,13 @@ if(isset($_POST['eliminar_pedido'])){
 
                 const token = btn.dataset.token;
 
+                // 🔹 Ruta base de tu proyecto en LOCAL
+                const basePath = "/Paginas_web/SUFI/gestor_v1";
+                // Si tu web está en dominio raíz:
+                //const basePath = "";
+
                 const urlBase = window.location.origin;
-                const link = `${urlBase}/seguimiento.php?token=${token}`;
+                const link = `${urlBase}${basePath}/seguimiento.php?token=${token}`;
 
                 inputLink.value = link;
 

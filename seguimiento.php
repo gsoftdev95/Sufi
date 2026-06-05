@@ -65,6 +65,7 @@
                 <?php endif; ?>
             </div>
         </section>
+        
         <section class="containerSeguimiento">
             <div class="containerSeguimientoInner">
                 <h1>Seguimiento de Pedido</h1>
@@ -86,6 +87,11 @@
 
                 <div class="containerDetailsOrder">
                     <iconify-icon icon="lets-icons:check-fill" class="iconcheckSeguimiento"></iconify-icon>
+                    <p><strong>Precio:</strong>  S/. <?= htmlspecialchars($pedido['precio']) ?></p>
+                </div>
+
+                <div class="containerDetailsOrder">
+                    <iconify-icon icon="lets-icons:check-fill" class="iconcheckSeguimiento"></iconify-icon>
                     <p><strong>Fecha de registro:</strong> <?= htmlspecialchars($fechaFormateada) ?></p>
                 </div>
 
@@ -97,15 +103,13 @@
                 
 
                 <div class="viewEstdClntFinal">
-                    <p>Tu pedido se encuentra en estado <strong><?= htmlspecialchars($pedido['estado']) ?></strong> </p>
+                    <p>Tu pedido se encuentra en estado <strong class="zoom-effect"><?= htmlspecialchars($pedido['estado']) ?></strong> </p>
 
                     <?php if (isset($imagenesEstados[$estado])): ?>
                         <img src="./src/picture/<?= $imagenesEstados[$estado] ?>" 
                             alt="estado del pedido" 
                             class="imgEstadosUI">
                     <?php endif; ?>
-
-
                 </div>
             </div>
         </section>

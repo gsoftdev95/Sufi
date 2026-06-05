@@ -186,6 +186,7 @@ if(isset($_POST['eliminar_negocio'])){
                                                     data-correo="<?= htmlspecialchars($clientes['correo']) ?>"
                                                     data-fecha-inicio="<?= htmlspecialchars($clientes['fecha_inicio']) ?>"
                                                     data-fecha-fin="<?= htmlspecialchars($clientes['fecha_fin']) ?>"
+                                                    data-logo="<?= $clientes['logo'] ?>"
                                             >
                                                 <span class="iconify-inline iconTabNeg" data-icon="mdi-light:pencil"></span>
                                             </button>
@@ -362,7 +363,7 @@ if(isset($_POST['eliminar_negocio'])){
                     <button type="button" class="btn-close closeModalEditNeg"></button>
                 </div>
 
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="editar_negocio" value="1">
 
                     <input type="hidden" name="id" id="editId">
@@ -385,10 +386,16 @@ if(isset($_POST['eliminar_negocio'])){
                     <label>Fecha fin</label>
                     <input type="date" class="form-control mb-3" name="fecha_fin" id="editFechaFin">
 
+                    <label>Logo del negocio</label>
+                    <input type="file" name="logo" class="form-control mb-3" accept="image/*">
+
+                    <!-- opcional: mostrar logo actual -->
+                    <div><img id="previewLogo" src="" width="60" class="card-img-top"> </div>
+
                     <button type="submit" class="btnUpNegocio">Guardar Cambios</button>
 
                 </form>
-            </div>        
+            </div>
         </section>
 
         <!-- Modal eliminar negocio -->
@@ -513,6 +520,7 @@ if(isset($_POST['eliminar_negocio'])){
                     document.getElementById("editCorreo").value = btn.dataset.correo;
                     document.getElementById("editFechaInicio").value = btn.dataset.fechaInicio;
                     document.getElementById("editFechaFin").value = btn.dataset.fechaFin;
+                    document.getElementById("previewLogo").src = "../../" + btn.dataset.logo;
 
                     modal.style.display = "flex";                    
                 })

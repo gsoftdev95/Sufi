@@ -4,6 +4,7 @@ require_once('../../controllers/functions.php');
 require_once('../../src/partials/conexionBD.php');
 
 controlAcceso($bd, ['admin']);
+
 $errores = [];
 $exito = false;
 
