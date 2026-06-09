@@ -8,10 +8,14 @@ $cliente_id = $_SESSION['cliente_id'];
 
 $totalPedidos = obtenerTotalPedidos($bd, $cliente_id);
 $ingresosTotales = obtenerIngresosTotales($bd, $cliente_id);
+
+
 $pedidosMes = obtenerPedidosMesActual($bd, $cliente_id);
-$pedidosPendientes = obtenerPedidosPendientes($bd, $cliente_id);
-$ingresosPorMes = obtenerIngresosPorMes($bd, $cliente_id);
-$pedidosPorMes = obtenerPedidosPorMes($bd, $cliente_id);
+$ingresosMensActual = obtenerIngresosMesActual($bd, $cliente_id);
+
+$pedidosPendientes = obtenerPedidosNoEntregados($bd, $cliente_id);
+$ingresosPorMesGraf = obtenerIngresosPorMesGraf($bd, $cliente_id);
+$pedidosPorMesGraf = obtenerPedidosPorMesGraf($bd, $cliente_id);
 $pedidosPorEstado = obtenerPedidosPorEstado($bd, $cliente_id);
 
 
@@ -56,12 +60,16 @@ $pedidosPorEstado = obtenerPedidosPorEstado($bd, $cliente_id);
                     </div>
 
                     <div class="cardDash">
-                        <div class="cardTitle">Pedidos Este Mes</div>
+                        <div class="cardTitle">Pedidos Mes Actual</div>
                         <div class="cardValue"><?= $pedidosMes ?></div>
+                    </div>
+                    <div class="cardDash">
+                        <div class="cardTitle">Ingresos Mensual Actual</div>
+                        <div class="cardValue">S/. <?= number_format($ingresosMensActual, 2) ?></div>
                     </div>
 
                     <div class="cardDash">
-                        <div class="cardTitle">Pendientes</div>
+                        <div class="cardTitle">Pedidos No Entregados</div>
                         <div class="cardValue"><?= $pedidosPendientes ?></div>
                     </div>
 
@@ -83,9 +91,7 @@ $pedidosPorEstado = obtenerPedidosPorEstado($bd, $cliente_id);
                         <h5>Pedidos por Mes</h5>
                         <canvas id="chartPedidos"></canvas>
                     </div>
-
                 </section>
-
 
             </div>
         </section>
@@ -101,8 +107,8 @@ $pedidosPorEstado = obtenerPedidosPorEstado($bd, $cliente_id);
     <script src="../../src/js/main.js"></script>
 
     <script>
-    const ingresosPorMes = <?= json_encode($ingresosPorMes) ?>;
-    const pedidosPorMes = <?= json_encode($pedidosPorMes) ?>;
+    const ingresosPorMesGraf = <?= json_encode($ingresosPorMesGraf) ?>;
+    const pedidosPorMesGraf = <?= json_encode($pedidosPorMesGraf) ?>;
     const estadosLabels = <?= json_encode($pedidosPorEstado['labels']) ?>;
     const estadosData = <?= json_encode($pedidosPorEstado['data']) ?>;
     </script>

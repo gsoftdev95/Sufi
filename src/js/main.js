@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
             labels: meses,
             datasets: [{
                 label: 'Ingresos',
-                data: ingresosPorMes,
+                data: ingresosPorMesGraf,
                 tension: 0.3,
                 fill: true
             }]
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             labels: meses,
             datasets: [{
                 label: 'Pedidos',
-                data: pedidosPorMes
+                data: pedidosPorMesGraf
             }]
         }
     });

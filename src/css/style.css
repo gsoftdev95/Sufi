@@ -1175,6 +1175,7 @@ footer{
 .cardTitle {
     font-size: 14px;
     color: #666;
+    width:fit-content
 }
 .cardValue {
     font-size: 28px;
