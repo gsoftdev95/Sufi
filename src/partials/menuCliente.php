@@ -1,26 +1,28 @@
+<?php
+$paginaActual = basename($_SERVER['PHP_SELF']);
+?>
+
 <div class="menuGestor">
-    <a href="dashboardCliente.php" class="dashboard">
+
+    <a href="dashboardCliente.php" class="dashboard <?= $paginaActual == 'dashboardCliente.php' ? 'active' : '' ?>">
         <span class="iconify-inline" data-icon="material-symbols:dashboard"></span>
         <span class="menuGestorText">Dashboard</span>
     </a>
-    <a href="pedidos.php" class="pedidos">
+
+    <a href="pedidos.php" class="pedidos <?= $paginaActual == 'pedidos.php' ? 'active' : '' ?>">
         <span class="iconify-inline" data-icon="lets-icons:order-fill"></span>
         <span class="menuGestorText">Pedidos</span>
     </a>
-    <!--
-    <a href="clientes.php" class="clientes">
-        <span class="iconify-inline" data-icon="ph:users-four-fill"></span>
-        <span>Clientes</span>
-    </a>
-    -->
-    <a href="finanzas.php" class="finanzas">
+
+    <a href="finanzas.php" class="finanzas <?= $paginaActual == 'finanzas.php' ? 'active' : '' ?>">
         <span class="iconify-inline" data-icon="fluent-mdl2:financial-solid"></span>
         <span class="menuGestorText">Finanzas</span>
     </a>
-    <a href="manualEmprendedor.php" class="manual">
+
+    <a href="manualEmprendedor.php" class="manual <?= $paginaActual == 'manualEmprendedor.php' ? 'active' : '' ?>">
         <span class="iconify-inline" data-icon="streamline:manual-book-remix"></span>
         <span class="menuGestorText">Manual</span>
     </a>
-    
-    
+
 </div>
+

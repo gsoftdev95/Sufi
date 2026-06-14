@@ -97,7 +97,7 @@ $pedidosPorEstado = obtenerPedidosPorEstado($bd, $cliente_id);
         </section>
 
         <footer>
-            footer
+            <?php include_once('../../src/partials/footer.php')?>
         </footer>
         
     </section>

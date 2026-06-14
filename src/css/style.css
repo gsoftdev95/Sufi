@@ -331,6 +331,7 @@
     align-content: center;
     align-items: center;
     line-height: 1;
+    transition: all .3s ease;
 
     @media (width < 480px) {
         margin: 2px 5px;
@@ -338,6 +339,16 @@
         flex-direction: column;
         font-size: 0.8rem;
     }
+}
+.menuGestor a.active{
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    border-radius: 10px;
+    transform: translateX(5px);
+}
+
+.menuGestor a.active .iconify-inline{
+    color: #0EA5E9;
 }
 .menuGestor a:hover{
     background-color: var(--text-title);
