@@ -697,8 +697,8 @@ if(isset($_POST['eliminar_pedido'])){
             btn.addEventListener("click", () => {
 
                 const token = btn.dataset.token;
-
-                // 🔹 Ruta base de tu proyecto en LOCAL
+                
+                // Ruta base de tu proyecto en LOCAL
                 const basePath = "/Paginas_web/SUFI/gestor_v1";
                 // Si tu web está en dominio raíz:
                 //const basePath = "";
