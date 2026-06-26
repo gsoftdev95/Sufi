@@ -172,6 +172,7 @@ if(isset($_POST['eliminar_pedido'])){
                             <input class="form-control me-2" type="search" placeholder="Buscador..." aria-label="Search" name="busquedaPedidos">
                             <select name="tipoBusquedaPedidos" id="tipoBusquedaPedidos">
                                 <option value="publico_final">Por cliente</option>
+                                <option value="id">Por ID</option>
                                 <option value="descripcion">Por descripcion</option>
                                 <option value="precio">Por precio</option>
                                 <option value="cantidad">Por cantidad</option>

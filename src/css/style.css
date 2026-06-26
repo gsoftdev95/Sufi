@@ -314,7 +314,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
-        margin: 5px 0px;
+        margin: 5px 0px 0px;
     }
 }
 .menuGestor a{
@@ -334,7 +334,7 @@
     transition: all .3s ease;
 
     @media (width < 480px) {
-        margin: 2px 5px;
+        margin: 2px 0px;
         padding: 2px 5px;
         flex-direction: column;
         font-size: 0.8rem;
@@ -344,7 +344,11 @@
     background: rgba(0, 0, 0, 0.2);
     color: white;
     border-radius: 10px;
-    transform: translateX(5px);
+
+    @media (width < 480px) {
+        border-radius: 50%;    
+        padding: 10px;
+    }
 }
 
 .menuGestor a.active .iconify-inline{
@@ -354,17 +358,16 @@
     background-color: var(--text-title);
 }
 .menuGestor a .iconify-inline{
-    margin-right: 10px;
+    margin: 0px 10px 0px 0px;
     font-size: 1.5rem;
 
     @media (width < 480px) {
-        margin: 0 auto;
+        margin: 0px auto;    
     }
 }
 .menuGestorText{
-
     @media (width<480px) {
-        padding: 3px 0px 0px;
+        padding: 0px;
         display: none;
     }
 }
@@ -1540,6 +1543,7 @@ footer{
     border: none;
     background-color: transparent;
     font-size: 1.2rem;
+    color: var(--text-title);
 }
 
 

@@ -107,7 +107,7 @@ if(isset($_SESSION['rol']) && $_SESSION['rol'] === 'cliente'){
     }
 </script>
 
-<!--script modal-->
+<!--script modal notifiaciones-->
 <script>
     document.addEventListener("DOMContentLoaded", ()=>{
 

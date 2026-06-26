@@ -117,7 +117,22 @@ controlAcceso($bd, ['cliente']);
                         </p>
                     </section>
 
-                    <!-- CONSEJOS -->
+                    <!-- SEGURIDAD -->
+                    <section class="manualSection">
+                        <h5 class="subTitleManual">Seguridad de tu cuenta</h5>
+
+                        <ul>
+                            <li>Por seguridad, te recomendamos cambiar la contraseña temporal que recibiste al crear tu cuenta por una contraseña personal y segura.</li>
+
+                            <li>Utiliza una contraseña que combine letras mayúsculas, minúsculas, números y caracteres especiales. Evita usar datos personales fáciles de adivinar.</li>
+
+                            <li>No compartas tu usuario ni contraseña con terceros.</li>
+
+                            <li>La sesión se cerrará automáticamente después de <strong>30 minutos</strong> de inactividad para proteger la información de tu negocio.</li>
+                        </ul>
+                    </section>
+
+                    <!-- RECOMENDACIONES -->
                     <section class="manualSection">
                         <h5  class="subTitleManual">Recomendaciones e indicaciones</h5>
                         <ul>
