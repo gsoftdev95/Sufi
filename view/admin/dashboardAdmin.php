@@ -88,6 +88,7 @@ $clientesPorVencer = obtenerClientesPorVencer($bd);
                 <div class="chartBox mt-4">
 
                     <h5>Clientes próximos a vencer</h5>
+                    <p class="DashAdminDescripcion">los clientes con 7 dias o menos aparecerán en la tabla </p>
 
                     <table class="table">
 
