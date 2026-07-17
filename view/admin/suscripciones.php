@@ -91,19 +91,16 @@ if(isset($_POST['renovar_negocio'])){
                                         <td><?= $suscripciones['fecha_fin'] ?></td>
                                         <td>
                                             <?php
-                                                $hoy = new DateTime();
-                                                $fechaFin = new DateTime($suscripciones['fecha_fin']);
+                                                $hoy = date('Y-m-d');
+                                                $fechaFin = $suscripciones['fecha_fin'];
 
-                                                if ($fechaFin > $hoy) {
-                                                    $diferencia = $hoy->diff($fechaFin);
-                                                    $dias = $diferencia->days+1;
-
+                                                if ($fechaFin >= $hoy) {
+                                                    $dias = (new DateTime($hoy))->diff(new DateTime($fechaFin))->days + 1;
                                                     if ($dias <= 5) {
                                                         echo "<span style='color:orange;'>$dias días</span>";
                                                     } else {
                                                         echo "<span style='color:green;'>$dias días</span>";
                                                     }
-
                                                 } else {
                                                     echo "<span style='color:red;'>Vencido</span>";
                                                 }
