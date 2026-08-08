@@ -1221,6 +1221,10 @@ footer{
     width: 100%;
     height: 100%;
 }
+.DashAdminDescripcion{
+    font-size: 11px;
+    color: #969696;
+}
 
 /*********************/
 /*********************/
@@ -1798,7 +1802,11 @@ footer{
 }
 .cardTitleFnzs{
     font-size: 14px;
-    color: #666;
+    color: #575757;
+}
+.cardDescriptionFnzs{
+    font-size: 10px;
+    color: #999;
 }
 .cardValueFnzs{    
     font-size: 28px;

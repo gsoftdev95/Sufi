@@ -10,6 +10,8 @@ $ingresosReales = obtenerIngresosReales($bd, $cliente_id);
 $ingresosActivos = obtenerIngresosActivos($bd, $cliente_id);
 $ingresosCancelados = obtenerIngresosCancelados($bd, $cliente_id);
 $ingresosPorEstado = obtenerIngresosPorEstadoFinanciero($bd, $cliente_id);
+$pedidosMes = obtenerCantidadPedidosMensual($bd, $cliente_id);
+$pedidosEntregadosMes = obtenerCantidadPedidosEntregadosMensual($bd, $cliente_id);
 
 ?>
 
@@ -40,18 +42,33 @@ $ingresosPorEstado = obtenerIngresosPorEstadoFinanciero($bd, $cliente_id);
                 
                 <section class="containerCardsFnzs">
                     <div class="cardDashFnzs">
-                        <div class="cardTitleFnzs">Ingresos Reales (Entregados)</div>
+                        <div class="cardTitleFnzs">Ingresos Reales</div>
+                        <div class="cardDescriptionFnzs">Pedidos entregados y completados</div>
                         <div class="cardValueFnzs">S/. <?= number_format($ingresosReales, 2) ?></div>
                     </div>
 
                     <div class="cardDashFnzs">
-                        <div class="cardTitleFnzs">Ingresos Activos (Sin Cancelados)</div>
+                        <div class="cardTitleFnzs">Ventas en proceso</div>
+                        <div class="cardDescriptionFnzs">Pedidos activos que aún no se cancelan</div>
                         <div class="cardValueFnzs">S/. <?= number_format($ingresosActivos, 2) ?></div>
                     </div>
 
                     <div class="cardDashFnzs">
-                        <div class="cardTitleFnzs">Ingresos Cancelados</div>
+                        <div class="cardTitleFnzs">Ventas Canceladas</div>
+                        <div class="cardDescriptionFnzs">Pedidos que no se concretaron</div>
                         <div class="cardValueFnzs">S/. <?= number_format($ingresosCancelados, 2) ?></div>
+                    </div>
+
+                    <div class="cardDashFnzs">
+                        <div class="cardTitleFnzs">Pedidos del mes</div>
+                        <div class="cardDescriptionFnzs">Total de pedidos registrados este mes</div>
+                        <div class="cardValueFnzs"><?= number_format($pedidosMes, 0) ?></div>
+                    </div>
+
+                    <div class="cardDashFnzs">
+                        <div class="cardTitleFnzs">Pedidos entregados este mes</div>
+                        <div class="cardDescriptionFnzs">Pedidos completados en el mes actual</div>
+                        <div class="cardValueFnzs"><?= number_format($pedidosEntregadosMes, 0) ?></div>
                     </div>
                 </section>
 
