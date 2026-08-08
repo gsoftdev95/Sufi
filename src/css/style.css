@@ -1507,6 +1507,28 @@ footer{
 .btnAddPedido:hover{
     background-color: var(--success-hover);
 }
+
+
+/*modal agregar pedido rapido*/
+
+.openModalPedidoRapido{
+    cursor: pointer;
+    border: none;
+}
+.openModalPedidoRapido:hover{
+    background-color: var(--primary);
+    color: var(--text-title);
+}
+.modalOverlayPedRap{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;    
+}
+
 .estado {
     width: 100%;
     max-width: 140px;

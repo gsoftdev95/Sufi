@@ -93,6 +93,29 @@ if(isset($_POST['crear_pedido'])) {
     }
 }
 
+// CREAR PEDIDO RÁPIDO
+if(isset($_POST['crear_pedido_rapido'])) {
+
+    $errores = validarPedidoRapido($_POST);
+
+    if (empty($errores)) {
+        $datosPedido = [
+            'publico_final' => trim($_POST['publico_final']),
+            'descripcion'   => trim($_POST['descripcion']),
+            'direccion'     => '',
+            'precio'        => $_POST['precio'],
+            'cantidad'      => 1,
+            'total'         => $_POST['precio']
+        ];
+        $guardado = guardarPedido($bd, $datosPedido);
+        if ($guardado) {
+            header("Location: " . $_SERVER['PHP_SELF']);
+            exit;
+        } else {
+            $errores[] = "Error al guardar el pedido.";
+        }
+    }
+}
 
 //EDITAR PEDIDO
 if(isset($_POST['editar_pedido'])){
@@ -156,14 +179,16 @@ if(isset($_POST['eliminar_pedido'])){
                 <div class="containerCardsPedidos">
                     <button class="cardsPedidos openModalPedido addPedidoBtn">
                         <div class="titleCardPedidos ">Agregar pedido:</div>
-                        <div class="rspCardPedido"><span class="iconify-inline" data-icon="lsicon:order-edit-outline"></div>
+                        <div class="rspCardPedido">
+                            <span class="iconify-inline" data-icon="lsicon:order-edit-outline">
+                        </div>
                     </button>
-                    <!--
-                    <div class="cardsPedidos">
-                        <div class="titleCardPedidos">Agregar Cliente favorito:</div>
-                        <div class="rspCardPedido"><span class="iconify-inline" data-icon="fluent:person-star-20-filled"></div>
-                    </div>
-                    -->
+                    <button class="cardsPedidos openModalPedidoRapido addPedidoBtn">
+                        <div class="titleCardPedidos">Registrar pedido rápido:</div>
+                        <div class="rspCardPedido">
+                            <span class="iconify-inline" data-icon="solar:sort-by-time-linear"></span>
+                        </div>
+                    </button>
                 </div>
 
                 <section class="containerTablePedidos">
@@ -364,6 +389,85 @@ if(isset($_POST['eliminar_pedido'])){
             </div>
         </div>
 
+        <!-- Modal registrar pedido rápido -->
+        <div class="modalOverlayPedRap" id="modalAddPedidoRapido">
+            <div class="modalContentPed">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0 titleModal">REGISTRO RÁPIDO</h5>
+
+                    <button type="button" class="btn-close closeModalPedRapido"></button>
+                </div>
+
+                <div class="alert alert-info small">
+                    <strong>Registro rápido:</strong>
+                    utiliza esta opción cuando necesites registrar varios pedidos rápidamente.
+                    Luego puedes editar cada pedido para completar información como la dirección
+                    y mejorar su seguimiento.
+                </div>
+
+                <?php if (isset($_POST['crear_pedido_rapido']) && count($errores) > 0): ?>
+
+                    <ul class="alert alert-danger">
+                        <?php foreach ($errores as $error): ?>
+                            <li><?= htmlspecialchars($error) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+
+                <?php endif; ?>
+
+                <form method="POST">
+                    <input type="hidden" name="crear_pedido_rapido" value="1">
+                    <div class="mb-2">
+                        <label class="form-label m-0">
+                            Nombre del cliente
+                        </label>
+                        <input
+                            type="text"
+                            name="publico_final"
+                            class="form-control m-0"
+                            required
+                        >
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label m-0">
+                            Descripción
+                        </label>
+
+                        <input
+                            type="text"
+                            name="descripcion"
+                            class="form-control m-0"
+                            required
+                        >
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label m-0">
+                            Precio
+                        </label>
+
+                        <input
+                            type="number"
+                            step="0.01"
+                            min="0"
+                            name="precio"
+                            class="form-control m-0"
+                            required
+                        >
+                    </div>
+
+                    <div class="mt-4 d-grid">
+                        <button type="submit" class="btnAddPedido">
+                            Registrar rápidamente
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
         <!-- Modal ver pedido -->
         <div class="modalViewPedidos" id="idmodalViewPedidos">
             <div class="modalContentviewPed">
@@ -555,8 +659,36 @@ if(isset($_POST['eliminar_pedido'])){
         });
     </script>
 
+    <!-- script para abrir/cerrar el modal pedido rapido-->
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const modalPedidoRapido = document.getElementById("modalAddPedidoRapido");
+        const btnPedidoRapido = document.querySelector(".openModalPedidoRapido");
+        const btnCerrarPedidoRapido = document.querySelector(".closeModalPedRapido");
 
-    <!-- calculo total del modal -->
+        if (btnPedidoRapido) {
+            btnPedidoRapido.addEventListener("click", () => {
+                modalPedidoRapido.style.display = "flex";
+            });
+        }
+
+        if (btnCerrarPedidoRapido) {
+            btnCerrarPedidoRapido.addEventListener("click", () => {
+                modalPedidoRapido.style.display  = "none";
+            });
+        }
+
+        window.addEventListener("click", (e) => {
+            if (e.target === modalPedidoRapido) {
+                modalPedidoRapido.style.display = "none";
+            }
+        });
+
+    });
+    </script> 
+
+    <!-- script calculo total del modal -->
     <script>
     document.addEventListener("DOMContentLoaded", function(){
 
