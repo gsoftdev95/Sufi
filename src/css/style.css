@@ -1,10 +1,17 @@
 :root{
     --primary: #0EA5E9; /* para btns guardar, crear, inisiar sesion, enviar*/
-    --primary-hover: #0284C7; 
+    --primary-hover: #0284C7;
+    --primary-light: #E0F2FE;
+    --primary-dark: #0369A1;
+
     --secondary: #8B5CF6; /* para btns cancelar volver editar opcines*/
     --secondary-hover: #7C3AED;
+    --secondary-light: #EDE9FE;
+    --secondary-dark: #6D28D9;
+
     --bg: #F8FAFC;
     --bg-alt:#e9edf1;
+
     --text-title: #0F172A;
     --text-body: #334155;
 
@@ -14,6 +21,11 @@
     --accent-hover: #F97316;
     --danger: #EF4444;
     --danger-hover: #DC2626;
+    --border: #E2E8F0;
+
+    --sufi-dark: #17231e;
+
+    --sufi-container: 1180px;
 }
 *{
     margin: 0;
@@ -21,6 +33,1347 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+/* Home Home */
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #202020;
+    background: #ffffff;
+    line-height: 1.5;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+button {
+    font-family: inherit;
+}
+
+
+/* ========== GENERAL============================== */
+
+.sufi-section-container {
+    width: min(1180px, 90%);
+    margin: auto;
+}
+
+.sufi-section-heading {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 55px;
+}
+
+.sufi-section-label {
+    display: inline-block;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.sufi-section-heading h2 {
+    font-size: clamp(32px, 4vw, 46px);
+    line-height: 1.15;
+    color: var(--sufi-dark);
+    margin-bottom: 18px;
+}
+
+.sufi-section-heading h2 span {
+    color: var(--primary);
+}
+
+.sufi-section-heading p {
+    color: var(--text-body);
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.sufi-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 13px 22px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    border: 1px solid transparent;
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+.sufi-btn-primary {
+    background: var(--success);
+    color: white;
+}
+
+.sufi-btn-primary:hover {
+    background: var(--success-hover);
+    transform: translateY(-2px);
+}
+
+.sufi-btn-secondary {
+    background: white;
+    color: var(--sufi-dark);
+    border-color: var(--bg-alt);
+}
+
+.sufi-btn-secondary:hover {
+    border-color: var(--success);
+    color: var(--success);
+}
+
+.sufi-btn-whatsapp {
+    background: #25d366;
+    color: white;
+}
+
+.sufi-btn-whatsapp:hover {
+    transform: translateY(-2px);
+    filter: brightness(0.95);
+}
+
+
+/* ================NAVBAR HOME========================= */
+
+.sufi-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-bottom: 1px solid var(--bg-alt);
+
+    backdrop-filter: blur(10px);
+}
+
+.sufi-nav-container {
+    width: min(var(--sufi-container), 90%);
+    min-height: 72px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logoHome{
+    width: 100px;
+}
+.logoHome img{
+    width: 100%;
+}
+
+.sufi-nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.sufi-nav-menu a {
+    color: var(--text-body);
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.sufi-nav-menu a:hover {
+    color: var(--primary);
+}
+
+.sufi-btn-login {
+    background: var(--text-title);
+    color: white;
+    padding: 10px 18px;
+}
+
+.sufi-btn-login:hover {
+    background: var(--primary);
+}
+
+.sufi-menu-mobile {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.sufi-hero {
+    padding: 90px 0 100px;
+    background: linear-gradient(
+        135deg,
+        #f7fbf9 0%,
+        #ffffff 65%
+    );
+    overflow: hidden;
+}
+
+.sufi-hero-container {
+    width: min(var(--sufi-container), 90%);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+.sufi-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 13px;
+    border-radius: 50px;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.sufi-hero-content h1 {
+    font-size: clamp(42px, 5vw, 65px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: var(--text-title);
+    margin-bottom: 25px;
+}
+
+.sufi-hero-content h1 span {
+    color: var(--primary);
+    display: block;
+}
+
+.sufi-hero-content > p {
+    max-width: 590px;
+    font-size: 18px;
+    color: var(--text-body);
+    margin-bottom: 25px;
+}
+
+.sufi-hero-price {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+    margin-bottom: 28px;
+}
+
+.sufi-hero-price span {
+    color: var(--text-body);
+}
+
+.sufi-hero-price strong {
+    font-size: 40px;
+    color: var(--secondary);
+}
+
+.sufi-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-bottom: 30px;
+}
+
+.sufi-hero-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.sufi-hero-benefits div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 13px;
+    color: var(--text-body);
+}
+
+.sufi-hero-benefits iconify-icon {
+    color: var(--primary);
+}
+
+
+/* =====================================================
+   HERO PREVIEW
+===================================================== */
+
+.sufi-hero-preview {
+    perspective: 1200px;
+}
+
+.sufi-preview-window {
+    background: white;
+
+    border: 1px solid var(--bg-alt);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 30px 80px rgba(20, 60, 45, 0.15);
+
+    overflow: hidden;
+
+    transform: rotateY(-5deg) rotateX(2deg);
+
+    transition: 0.5s ease;
+}
+
+.sufi-preview-window:hover {
+    transform: rotateY(0) rotateX(0);
+}
+
+.sufi-preview-header {
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 17px;
+
+    border-bottom: 1px solid var(--bg-alt);
+
+    color: var(--primary);
+
+    font-weight: 800;
+}
+
+.sufi-preview-dots {
+    display: flex;
+    gap: 5px;
+    margin-right: auto;
+}
+
+.sufi-preview-dots span {
+    width: 8px;
+    height: 8px;
+
+    background: #d5ddd9;
+
+    border-radius: 50%;
+}
+
+.sufi-preview-body {
+    display: flex;
+    min-height: 360px;
+}
+
+.sufi-preview-sidebar {
+    width: 100px;
+
+    background: #f5f8f6;
+
+    padding: 18px 12px;
+}
+
+.sufi-preview-logo {
+    color: var(--primary);
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+.sufi-preview-menu {
+    height: 9px;
+    background: #dce5e1;
+    border-radius: 5px;
+    margin-bottom: 18px;
+}
+
+.sufi-preview-menu.active {
+    background: var(--primary);
+}
+
+.sufi-preview-dashboard {
+    flex: 1;
+    padding: 25px;
+}
+
+.sufi-preview-dashboard h3 {
+    color: var(--sufi-dark);
+    margin-bottom: 20px;
+}
+
+.sufi-preview-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.sufi-preview-card {
+    padding: 15px;
+
+    background: #f8faf9;
+
+    border-radius: 8px;
+}
+
+.sufi-preview-card small {
+    display: block;
+    color: #77827d;
+    margin-bottom: 7px;
+}
+
+.sufi-preview-card strong {
+    color: var(--sufi-dark);
+}
+
+.sufi-preview-chart {
+    height: 130px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+
+    padding: 15px;
+
+    margin-top: 25px;
+
+    background: #f8faf9;
+
+    border-radius: 8px;
+}
+
+.sufi-preview-chart span {
+    width: 8%;
+    background: var(--primary);
+    border-radius: 4px 4px 0 0;
+}
+
+.sufi-preview-chart span:nth-child(1) {
+    height: 30%;
+}
+
+.sufi-preview-chart span:nth-child(2) {
+    height: 50%;
+}
+
+.sufi-preview-chart span:nth-child(3) {
+    height: 40%;
+}
+
+.sufi-preview-chart span:nth-child(4) {
+    height: 70%;
+}
+
+.sufi-preview-chart span:nth-child(5) {
+    height: 55%;
+}
+
+.sufi-preview-chart span:nth-child(6) {
+    height: 85%;
+}
+
+
+/* =====================================================
+   TRUST
+===================================================== */
+
+.sufi-trust {
+    border-bottom: 1px solid var(--bg-alt);
+}
+
+.sufi-trust-container {
+    width: min(var(--sufi-container), 90%);
+    margin: auto;
+
+    padding: 35px 0;
+}
+
+.sufi-trust-container > p {
+    text-align: center;
+
+    font-weight: 700;
+    color: var(--sufi-dark);
+
+    margin-bottom: 25px;
+}
+
+.sufi-trust-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+.sufi-trust-items div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--text-body);
+    font-size: 14px;
+}
+
+.sufi-trust-items iconify-icon {
+    color: var(--primary);
+    font-size: 21px;
+}
+
+
+/* =====================================================
+   FEATURES
+===================================================== */
+
+.sufi-features {
+    padding: 100px 0;
+}
+
+.sufi-features-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.sufi-feature-card {
+    padding: 30px;
+
+    border: 1px solid var(--bg-alt);
+
+    border-radius: 12px;
+
+    transition: 0.25s ease;
+}
+
+.sufi-feature-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #c7ded4;
+
+    box-shadow: 0 15px 35px rgba(30, 80, 60, 0.08);
+}
+
+.sufi-feature-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-size: 25px;
+
+    margin-bottom: 20px;
+}
+
+.sufi-feature-card h3 {
+    margin-bottom: 10px;
+    color: var(--sufi-dark);
+}
+
+.sufi-feature-card p {
+    color: var(--text-body);
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   TARGET
+===================================================== */
+
+.sufi-target {
+    padding: 100px 0;
+
+    background: var(--bg);
+}
+
+.sufi-target-container {
+    width: min(var(--sufi-container), 90%);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+.sufi-target-content h2 {
+    font-size: clamp(35px, 4vw, 50px);
+    line-height: 1.1;
+
+    color: var(--sufi-dark);
+
+    margin-bottom: 20px;
+}
+
+.sufi-target-content h2 span {
+    color: var(--primary);
+}
+
+.sufi-target-content > p {
+    color: var(--text-body);
+    margin-bottom: 25px;
+}
+
+.sufi-check-list {
+    list-style: none;
+}
+
+.sufi-check-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 13px;
+
+    color: var(--sufi-dark);
+}
+
+.sufi-check-list iconify-icon {
+    color: var(--primary);
+}
+
+.sufi-target-message {
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 18px;
+
+    border: 1px solid var(--bg-alt);
+
+    box-shadow: 0 20px 50px rgba(30, 80, 60, 0.08);
+}
+
+.sufi-target-message-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    border-radius: 50%;
+
+    font-size: 27px;
+
+    margin-bottom: 20px;
+}
+
+.sufi-target-message h3 {
+    font-size: 26px;
+    color: var(--sufi-dark);
+
+    margin-bottom: 10px;
+}
+
+.sufi-target-message p {
+    color: var(--text-body);
+}
+
+
+/* =====================================================
+   DEMO
+===================================================== */
+
+.sufi-demo {
+    padding: 100px 0;
+}
+
+.sufi-demo-container {
+    width: min(var(--sufi-container), 90%);
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 0.8fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+.sufi-demo-content h2 {
+    font-size: clamp(35px, 4vw, 50px);
+    line-height: 1.1;
+
+    color: var(--sufi-dark);
+
+    margin-bottom: 20px;
+}
+
+.sufi-demo-content h2 span {
+    color: var(--primary);
+}
+
+.sufi-demo-content > p {
+    color: var(--text-body);
+
+    font-size: 17px;
+
+    max-width: 550px;
+
+    margin-bottom: 25px;
+}
+
+.sufi-demo-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    padding: 15px;
+
+    background: var(--primary-light);
+
+    border-radius: 8px;
+
+    color: var(--text-body);
+
+    font-size: 14px;
+}
+
+.sufi-demo-note iconify-icon {
+    color: var(--primary);
+    font-size: 21px;
+}
+
+
+/* =====================================================
+   DEMO CARD
+===================================================== */
+
+.sufi-demo-card {
+    padding: 30px;
+
+    background: white;
+
+    border: 1px solid var(--bg-alt);
+
+    border-radius: 16px;
+
+    box-shadow: 0 20px 50px rgba(20, 70, 50, 0.1);
+}
+
+.sufi-demo-card-header {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 25px;
+}
+
+.sufi-demo-card-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    border-radius: 50%;
+
+    font-size: 26px;
+}
+
+.sufi-demo-card-header h3 {
+    color: var(--sufi-dark);
+}
+
+.sufi-demo-card-header span {
+    color: #7a8580;
+    font-size: 13px;
+}
+
+.sufi-credential {
+    margin-bottom: 15px;
+}
+
+.sufi-credential label {
+    display: block;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    color: var(--text-body);
+
+    margin-bottom: 6px;
+}
+
+.sufi-credential-value {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 11px 13px;
+
+    background: #f6f8f7;
+
+    border: 1px solid var(--bg-alt);
+
+    border-radius: 7px;
+
+    font-family: monospace;
+
+    color: var(--sufi-dark);
+}
+
+.sufi-credential-value button {
+    border: none;
+    background: none;
+
+    color: var(--primary);
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.sufi-btn-demo {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+/* =====================================================
+   TRIAL
+===================================================== */
+
+.sufi-trial {
+    padding: 100px 0;
+
+    background: var(--sufi-dark);
+
+    color: white;
+}
+
+.sufi-trial-container {
+    width: min(900px, 90%);
+    margin: auto;
+
+    text-align: center;
+}
+
+.sufi-trial-badge {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.1);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 18px;
+}
+
+.sufi-trial-content h2 {
+    font-size: clamp(35px, 5vw, 52px);
+
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+}
+
+.sufi-trial-content p {
+    max-width: 650px;
+
+    margin: 0 auto 25px;
+
+    color: #c9d4cf;
+
+    font-size: 17px;
+}
+
+.sufi-trial-points {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 25px;
+
+    margin-bottom: 30px;
+}
+
+.sufi-trial-points div {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    font-size: 14px;
+}
+
+.sufi-trial-points iconify-icon {
+    color: #69d3a8;
+}
+
+
+/* =====================================================
+   PRICING
+===================================================== */
+
+.sufi-pricing {
+    padding: 100px 0;
+    background: var(--bg);
+}
+
+.sufi-price-card {
+    width: min(430px, 100%);
+    margin: auto;
+
+    padding: 40px;
+
+    background: white;
+
+    border: 2px solid var(--primary);
+
+    border-radius: 16px;
+
+    box-shadow: 0 20px 50px rgba(20, 70, 50, 0.1);
+}
+
+.sufi-price-header {
+    text-align: center;
+}
+
+.sufi-price-name {
+    font-size: 14px;
+
+    font-weight: 800;
+
+    color: var(--primary);
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.sufi-price {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: baseline;
+
+    gap: 5px;
+
+    margin: 10px 0;
+}
+
+.sufi-price span {
+    font-size: 20px;
+}
+
+.sufi-price strong {
+    font-size: 65px;
+
+    color: var(--sufi-dark);
+
+    line-height: 1;
+}
+
+.sufi-price small {
+    color: var(--text-body);
+}
+
+.sufi-price-header p {
+    color: var(--text-body);
+}
+
+.sufi-price-divider {
+    height: 1px;
+
+    background: var(--bg-alt);
+
+    margin: 25px 0;
+}
+
+.sufi-price-features {
+    list-style: none;
+
+    margin-bottom: 30px;
+}
+
+.sufi-price-features li {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 13px;
+
+    color: var(--text-body);
+
+    font-size: 14px;
+}
+
+.sufi-price-features iconify-icon {
+    color: var(--primary);
+}
+
+.sufi-btn-price {
+    width: 100%;
+}
+
+
+/* =====================================================
+   FINAL CTA
+===================================================== */
+
+.sufi-final-cta {
+    padding: 100px 0;
+}
+
+.sufi-final-container {
+    width: min(800px, 90%);
+    margin: auto;
+
+    text-align: center;
+}
+
+.sufi-final-container h2 {
+    font-size: clamp(35px, 5vw, 52px);
+
+    line-height: 1.1;
+
+    color: var(--sufi-dark);
+
+    margin-bottom: 18px;
+}
+
+.sufi-final-container h2 span {
+    color: var(--primary);
+}
+
+.sufi-final-container p {
+    color: var(--text-body);
+
+    margin-bottom: 30px;
+
+    font-size: 17px;
+}
+
+.sufi-final-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.sufi-footer {
+    background: #101814;
+
+    color: white;
+
+    padding: 60px 0 20px;
+}
+
+.sufi-footer-container {
+    width: min(var(--sufi-container), 90%);
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr;
+
+    gap: 50px;
+
+    padding-bottom: 40px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sufi-footer-brand p {
+    max-width: 300px;
+
+    margin-top: 15px;
+
+    color: #aab5b0;
+
+    font-size: 14px;
+}
+
+.sufi-footer-links {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.sufi-footer-links h4 {
+    margin-bottom: 8px;
+}
+
+.sufi-footer-links a {
+    color: #aab5b0;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+.sufi-footer-links a:hover {
+    color: white;
+}
+
+.sufi-footer-bottom {
+    width: min(var(--sufi-container), 90%);
+    margin: auto;
+
+    padding-top: 20px;
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: #7f8985;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   RESPONSIVE TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .sufi-nav-menu {
+        gap: 15px;
+    }
+
+    .sufi-hero-container {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .sufi-hero-content > p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sufi-hero-buttons,
+    .sufi-hero-benefits {
+        justify-content: center;
+    }
+
+    .sufi-hero-preview {
+        max-width: 650px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .sufi-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sufi-target-container,
+    .sufi-demo-container {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .sufi-nav-container {
+        min-height: 65px;
+    }
+
+    .sufi-nav-menu {
+        display: none;
+
+        position: absolute;
+
+        top: 65px;
+        left: 0;
+        right: 0;
+
+        padding: 20px;
+
+        background: white;
+
+        border-bottom: 1px solid var(--bg-alt);
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .sufi-nav-menu.sufi-nav-active {
+        display: flex;
+    }
+
+    .sufi-btn-login {
+        display: none;
+    }
+
+    .sufi-menu-mobile {
+        display: block;
+    }
+
+    .sufi-hero {
+        padding: 60px 0 70px;
+    }
+
+    .sufi-hero-content h1 {
+        letter-spacing: -1px;
+    }
+
+    .sufi-hero-buttons {
+        flex-direction: column;
+    }
+
+    .sufi-hero-buttons .sufi-btn {
+        width: 100%;
+    }
+
+    .sufi-hero-benefits {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sufi-preview-sidebar {
+        width: 65px;
+    }
+
+    .sufi-preview-logo {
+        font-size: 12px;
+    }
+
+    .sufi-preview-dashboard {
+        padding: 15px;
+    }
+
+    .sufi-preview-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .sufi-preview-card {
+        padding: 10px;
+    }
+
+    .sufi-features {
+        padding: 70px 0;
+    }
+
+    .sufi-features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sufi-target,
+    .sufi-demo,
+    .sufi-trial,
+    .sufi-pricing,
+    .sufi-final-cta {
+        padding: 70px 0;
+    }
+
+    .sufi-target-message,
+    .sufi-demo-card,
+    .sufi-price-card {
+        padding: 25px;
+    }
+
+    .sufi-trial-points {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .sufi-footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sufi-footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .sufi-footer-bottom {
+        flex-direction: column;
+    }
+
+}
+
+
+/* =====================================================
+   EXTRA SMALL
+===================================================== */
+
+@media (max-width: 420px) {
+
+    .sufi-hero-content h1 {
+        font-size: 38px;
+    }
+
+    .sufi-section-heading h2 {
+        font-size: 32px;
+    }
+
+    .sufi-target-content h2,
+    .sufi-demo-content h2 {
+        font-size: 34px;
+    }
+
+    .sufi-price strong {
+        font-size: 55px;
+    }
+
+}
+
+
+
+/**********************************/
+/**********************************/
+/**********************************/
+/**********************************/
+/**********************************/
+/**********************************/
 .bodymainLogin{
     background-color: var(--bg);
     width: 100%;
@@ -55,12 +1408,12 @@
         text-align: center;
     }
 }
-.welcomeText .highlight {
+.highlight {
     color: var(--text-body);
     font-size: 3rem;
     font-weight: 700;
 }
-.welcomeText .highlight img{
+.highlight img{
     width: 150px;
 
 }
