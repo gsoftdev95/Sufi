@@ -174,6 +174,16 @@ button {
     width: 100%;
 }
 
+.containerOpcion{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @media (width < 650px) {
+        justify-content:end;
+    }
+
+}
 .sufi-nav-menu {
     display: flex;
     align-items: center;
@@ -195,6 +205,13 @@ button {
     background: var(--text-title);
     color: white;
     padding: 10px 18px;
+
+    @media (width < 650px) {
+        /*  */
+    }
+}
+.sufi-btn-login span:nth-child(1){
+    display: none;
 }
 
 .sufi-btn-login:hover {
@@ -1227,21 +1244,14 @@ button {
 
     .sufi-nav-menu {
         display: none;
-
         position: absolute;
-
         top: 65px;
         left: 0;
         right: 0;
-
         padding: 20px;
-
         background: white;
-
         border-bottom: 1px solid var(--bg-alt);
-
         flex-direction: column;
-
         gap: 20px;
     }
 
@@ -1249,12 +1259,9 @@ button {
         display: flex;
     }
 
-    .sufi-btn-login {
-        display: none;
-    }
-
     .sufi-menu-mobile {
         display: block;
+        margin: 0px 10px;
     }
 
     .sufi-hero {
@@ -2286,7 +2293,6 @@ footer{
 }
 .containerFormSearNot{
     width: 100%;
-    background-color: red;
     display: none;
 }
 

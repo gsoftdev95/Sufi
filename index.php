@@ -59,21 +59,24 @@
             <img src="./src/img/logo_admin/6_sinmargen_sf.png" alt="foto de proveedor" >
         </a>
 
-        <nav class="sufi-nav-menu">
-            <a href="#inicio">Inicio</a>
-            <a href="#caracteristicas">Características</a>
-            <a href="#demo">Demo</a>
-            <a href="#precio">Precio</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
+        <div class="containerOpcion">
+            <nav class="sufi-nav-menu">
+                <a href="#inicio">Inicio</a>
+                <a href="#caracteristicas">Características</a>
+                <a href="#demo">Demo</a>
+                <a href="#precio">Precio</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
 
-        <a href="login.php" class="sufi-btn sufi-btn-login">
-            Iniciar sesión
-        </a>
+            <button class="sufi-menu-mobile" id="sufiMenuBtn">
+                <iconify-icon icon="mdi:menu"></iconify-icon>
+            </button>
 
-        <button class="sufi-menu-mobile" id="sufiMenuBtn">
-            <iconify-icon icon="mdi:menu"></iconify-icon>
-        </button>
+            <a href="login.php" class="sufi-btn sufi-btn-login">
+                <span>Iniciar sesión </span><span><i class="bi bi-person-fill"></i></span>
+            </a>
+        </div>
+        
 
     </div>
 </header>
