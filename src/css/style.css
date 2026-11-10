@@ -2753,9 +2753,8 @@ footer{
 .tablaPedidos td:nth-child(2), /* Cliente */
 .tablaPedidos td:nth-child(5), /* Fecha */
 .tablaPedidos td:nth-child(6), /* Precio */
-.tablaPedidos td:nth-child(7), /* Cantidad */
-.tablaPedidos td:nth-child(8),  /* Total */
-.tablaPedidos td:nth-child(10) /* Accion */{
+.tablaPedidos td:nth-child(7),  /* Total */
+.tablaPedidos td:nth-child(9) /* Accion */{
     white-space: nowrap;
     text-align: center;
 }
@@ -2767,14 +2766,14 @@ footer{
     }
 }
 
-.tablaPedidos td:nth-child(8)  /* Total */ {
+.tablaPedidos td:nth-child(7)  /* Total */ {
     max-width: 100px;
 }
-.tablaPedidos td:nth-child(9)  /* estado */ {
+.tablaPedidos td:nth-child(8)  /* estado */ {
     min-width: 100px;
 }
-.tablaPedidos th:nth-child(9), 
-.tablaPedidos td:nth-child(9){
+.tablaPedidos th:nth-child(8), 
+.tablaPedidos td:nth-child(8){
     @media (width<1600px) {
         width: 200px;
     }
@@ -2840,7 +2839,23 @@ footer{
     max-width: 90%;
     position: relative;
     animation: fadePed 0.3s ease;
+    max-height: 85vh;
+    overflow-y: auto;
 }
+.modalContentPed::-webkit-scrollbar{
+    width: 5px;
+}
+.modalContentPed::-webkit-scrollbar-track{
+    background-color: #999;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.modalContentPed::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background: var(--accent)
+}
+
 .titleModal{
     color: var(--text-title);
     font-weight: 600;
@@ -2894,8 +2909,8 @@ footer{
     padding: 7px 15px;
     border-radius: 20px;
     border: none;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: bold;
     display: inline-block;
 }
 
@@ -2959,6 +2974,9 @@ footer{
     max-width: 90%;
     position: relative;
     animation: fadeViewPed 0.3s ease;
+    
+    max-height: 85vh;
+    overflow-y: auto;
     
     @media (width < 480px) {
         max-height: 600px;

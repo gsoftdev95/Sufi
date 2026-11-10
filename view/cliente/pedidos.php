@@ -83,7 +83,6 @@ if(isset($_POST['crear_pedido'])) {
 
     if (empty($errores)) {
         $guardado = guardarPedido($bd, $_POST);
-
         if ($guardado) {
             header("Location: " . $_SERVER['PHP_SELF']);
             exit;
@@ -214,16 +213,15 @@ if(isset($_POST['eliminar_pedido'])){
                         <table class="table table-hover tablaPedidos" id="tablaPedidos">
                             <thead>
                                 <tr class="table-primary">
-                                    <th>Id</th>
-                                    <th>Cliente</th>
-                                    <th>Descripcion</th>
-                                    <th>Dirección de envío</th>
-                                    <th>Fecha</th>
-                                    <th>Precio</th>                                
-                                    <th>cantidad</th>
-                                    <th>Total</th>
-                                    <th>Estado</th>
-                                    <th>Acción</th>
+                                    <th>Id</th> <!-- 1 -->
+                                    <th>Cliente</th> <!-- 2 -->
+                                    <th>Descripcion</th> <!-- 3 -->
+                                    <th>Dirección de envío</th> <!-- 4 -->
+                                    <th>Fecha</th> <!-- 5 -->
+                                    <th>Precio</th> <!-- 6 -->
+                                    <th>Total</th> <!-- 7 -->
+                                    <th>Estado</th> <!-- 8 -->
+                                    <th>Acción</th> <!-- 9 -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -235,7 +233,6 @@ if(isset($_POST['eliminar_pedido'])){
                                     <td title="<?= htmlspecialchars($pedidos['direccion']) ?>" data-bs-toggle="tooltip"><?=  $pedidos['direccion'] ?></td>
                                     <td><?=  $pedidos['fecha'] ?></td>
                                     <td><?=  $pedidos['precio'] ?></td>
-                                    <td><?=  $pedidos['cantidad'] ?></td>
                                     <td><?=  $pedidos['total'] ?></td>
                                     <td>
                                         <form method="POST">
@@ -272,6 +269,7 @@ if(isset($_POST['eliminar_pedido'])){
                                         <button class="openModalViewPedido"
                                             data-cliente="<?= htmlspecialchars($pedidos['publico_final']) ?>"
                                             data-descripcion="<?= htmlspecialchars($pedidos['descripcion']) ?>"
+                                            data-observacion="<?= htmlspecialchars($pedidos['observacion']) ?>"
                                             data-direccion="<?= htmlspecialchars($pedidos['direccion']) ?>"
                                             data-fecha="<?= $pedidos['fecha'] ?>"
                                             data-precio="<?= $pedidos['precio'] ?>"
@@ -287,6 +285,7 @@ if(isset($_POST['eliminar_pedido'])){
                                             data-id="<?= $pedidos['id'] ?>"
                                             data-cliente="<?= htmlspecialchars($pedidos['publico_final']) ?>"
                                             data-descripcion="<?= htmlspecialchars($pedidos['descripcion']) ?>"
+                                            data-observacion="<?= htmlspecialchars($pedidos['observacion']) ?>"
                                             data-direccion="<?= htmlspecialchars($pedidos['direccion']) ?>"
                                             data-precio="<?= $pedidos['precio'] ?>"
                                             data-cantidad="<?= $pedidos['cantidad'] ?>"
@@ -355,7 +354,7 @@ if(isset($_POST['eliminar_pedido'])){
 
                     <div class="mb-2">
                         <label class="form-label m-0">Descripción</label>
-                        <input type="text" name="descripcion" class="form-control m-0" required>
+                        <textarea name="descripcion" class="form-control" rows="4" placeholder="Escribe una descripción por línea..."></textarea>
                     </div>
 
                     <div class="mb-2">
@@ -364,8 +363,13 @@ if(isset($_POST['eliminar_pedido'])){
                     </div>
 
                     <div class="mb-2">
+                        <label class="form-label m-0">Observación</label>
+                        <textarea name="observacion" class="form-control" rows="3" placeholder="Agrega alguna información adicional (opcional)..." ></textarea>
+                    </div>
+
+                    <div class="mb-2">
                         <label class="form-label m-0">Precio</label>
-                        <input type="number" step="0.01" min="0" name="precio" id="precio" class="form-control m-0" required>
+                        <input type="number" step="0.01" min="0.01" name="precio" id="precio" class="form-control m-0" required>
                     </div>
 
                     <div class="mb-2">
@@ -490,6 +494,12 @@ if(isset($_POST['eliminar_pedido'])){
                 <hr>
 
                 <div class="mb-2">
+                    <h6>Observación</h6>
+                    <p id="viewObservacion"></p>
+                </div>
+                <hr>
+
+                <div class="mb-2">
                     <h6>Dirección</h6>
                     <p id="viewDireccion"></p>
                 </div>
@@ -545,16 +555,19 @@ if(isset($_POST['eliminar_pedido'])){
                     <input type="text" class="form-control mb-3" name="publico_final" id="editCliente">
 
                     <label>Descripción</label>
-                    <input type="text" class="form-control mb-3" name="descripcion" id="editDescripcion">
+                    <textarea class="form-control mb-3" name="descripcion" id="editDescripcion" rows="4" required ></textarea>
 
                     <label>Dirección</label>
                     <input type="text" class="form-control mb-3" name="direccion" id="editDireccion">
 
+                    <label class="form-label m-0">Observación</label>
+                    <textarea name="observacion" id="editObservacion" class="form-control" rows="3" placeholder="Agrega alguna información adicional (opcional)..." ></textarea>
+                    
                     <label>Precio</label>
-                    <input type="number" class="form-control mb-3" name="precio" id="editPrecio">
+                    <input type="number" step="0.01" min="0" class="form-control mb-3" name="precio" id="editPrecio" required>
 
                     <label>Cantidad</label>
-                    <input type="number" class="form-control mb-3" name="cantidad" id="editCantidad">
+                    <input type="number" min="1" step="1" class="form-control mb-3" name="cantidad" id="editCantidad" required>
 
                     <button type="submit" class="btnUpdPedido">Guardar Cambios</button>
 
@@ -724,6 +737,7 @@ if(isset($_POST['eliminar_pedido'])){
 
                     document.getElementById("viewCliente").textContent = btn.dataset.cliente;
                     document.getElementById("viewDescripcion").textContent = btn.dataset.descripcion;
+                    document.getElementById("viewObservacion").textContent = btn.dataset.observacion;
                     document.getElementById("viewDireccion").textContent = btn.dataset.direccion;
                     document.getElementById("viewFecha").textContent = btn.dataset.fecha;
                     document.getElementById("viewPrecio").textContent = btn.dataset.precio;
@@ -763,6 +777,7 @@ if(isset($_POST['eliminar_pedido'])){
                     document.getElementById("editId").value = btn.dataset.id;
                     document.getElementById("editCliente").value = btn.dataset.cliente;
                     document.getElementById("editDescripcion").value = btn.dataset.descripcion;
+                    document.getElementById('editObservacion').value = btn.dataset.observacion ?? '';
                     document.getElementById("editDireccion").value = btn.dataset.direccion;
                     document.getElementById("editPrecio").value = btn.dataset.precio;
                     document.getElementById("editCantidad").value = btn.dataset.cantidad;
