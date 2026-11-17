@@ -1597,25 +1597,160 @@ button {
 .iconAccesos{
     width:auto;
     display: flex;
+    padding: 5px 12px;
+    justify-content: center;
+    align-items: center;
 }
-.iconAccesos a, .iconAccesos div{
-    font-size: 1.5rem;
-    color: var(--bg-alt);
-    margin: 0px 5px;
-    text-decoration: none;
-}
-.iconUsers{
-    margin: 1px 3px;
-    color: var(--bg-alt);
-    font-size: 1.5rem;
-}
+
+
 .noti i{
     color: var(--success);
 }
-.iconAccesos .msg{
-    position: relative;
-    cursor: pointer;
+
+
+.estadoSuscripcion{
+    position:relative;
+    margin: 0;
+    padding: 0;
 }
+.conteinerIconoHeader{
+    margin: 0px 5px;
+}
+
+.iconUsers{
+    margin: 1px 5px;
+    color: var(--bg-alt);
+    font-size: 1.5rem;
+}
+.tooltipSuscripcion {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: -10px;
+    width: 290px;
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    color: #333;
+    z-index: 1000;
+    overflow: hidden;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all .2s ease;
+}
+
+
+/* Mostrar al pasar el cursor */
+.estadoSuscripcion:hover .tooltipSuscripcion,
+.tooltipSuscripcion:hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.suscripcionUsuario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 12px;
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
+}
+.suscripcionUsuario > i {
+    font-size: 22px;
+    color: #777;
+}
+.suscripcionUsuario strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+.suscripcionUsuario span {
+    display: block;
+    font-size: 11px;
+    color: #999;
+    margin-top: 3px;
+}
+
+.suscripcionHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: #f0faf4;
+    border-bottom: 1px solid #e5f1e9;
+}
+.suscripcionIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #d9f3e2;
+    color: #198754;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+}
+.suscripcionHeader strong {
+    display: block;
+    font-size: 14px;
+    color: #222;
+}
+.suscripcionEstado {
+    display: block;
+    font-size: 11px;
+    color: #198754;
+    margin-top: 4px;
+}
+.suscripcionEstado i {
+    font-size: 7px;
+    margin-right: 3px;
+}
+
+.suscripcionBody {
+    padding: 6px 14px;
+}
+.suscripcionItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.suscripcionItem:last-child {
+    border-bottom: none;
+}
+.suscripcionItem span {
+    font-size: 12px;
+    color: #777;
+    white-space: nowrap;
+}
+.suscripcionItem span i {
+    margin-right: 5px;
+}
+.suscripcionItem strong {
+    font-size: 12px;
+    color: #333;
+    text-align: right;
+}
+
+.suscripcionFooter {
+    padding: 12px 16px;
+    background: #f8f9fa;
+    font-size: 11px;
+    color: #666;
+}
+.suscripcionFooter i {
+    color: #198754;
+    margin-right: 4px;
+}
+.suscripcionFooter strong {
+    color: #198754;
+}
+
 .numberNotif{
     position: absolute;
     top: -6px;
@@ -1626,25 +1761,10 @@ button {
     padding: 2px 6px;
     border-radius: 50%;
 }
-
-.estadoSuscripcion{
-    position:relative;
-    cursor:pointer;
-}
-.tooltipSuscripcion{
-    position:absolute;
-    top:35px;
-    right:0;
-    background:#fff;
-    color: var(--text-body) !important;
-    border-radius:8px;
-    padding:10px 15px;
-    font-size:1rem !important;
-    box-shadow:0 5px 15px rgba(0,0,0,0.15);
-    display:none;
-    white-space:nowrap;
-}
-
+.msg{
+    position: relative;
+    cursor: pointer;
+} 
 .bussinesSection{
     background-color: var(--bg-alt);
     z-index: 0;

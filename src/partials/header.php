@@ -1,15 +1,26 @@
 <?php
-function obtenerFechaFinSuscripcion($bd, $cliente_id){
-
-    $sql = "SELECT fecha_fin 
-            FROM clientes
-            WHERE id = :cliente_id";
-
+function obtenerUsername($bd, $cliente_id){
+    $sql = "SELECT username FROM usuarios WHERE cliente_id = :cliente_id ORDER BY id ASC LIMIT 1";
     $stmt = $bd->prepare($sql);
     $stmt->execute([
         ':cliente_id' => $cliente_id
     ]);
-
+    return $stmt->fetchColumn();
+}
+function obtenerFechaFinSuscripcion($bd, $cliente_id){
+    $sql = "SELECT fecha_fin FROM clientes WHERE id = :cliente_id";
+    $stmt = $bd->prepare($sql);
+    $stmt->execute([
+        ':cliente_id' => $cliente_id
+    ]);
+    return $stmt->fetchColumn();
+}
+function obtenerFechaInicioSuscripcion($bd, $cliente_id){
+    $sql = "SELECT creado_en FROM usuarios WHERE cliente_id = :cliente_id ORDER BY id ASC LIMIT 1";
+    $stmt = $bd->prepare($sql);
+    $stmt->execute([
+        ':cliente_id' => $cliente_id
+    ]);
     return $stmt->fetchColumn();
 }
 
@@ -18,6 +29,12 @@ $noLeidas = 0;
 
 if(isset($_SESSION['rol']) && $_SESSION['rol'] === 'cliente'){
     $fecha_fin = obtenerFechaFinSuscripcion($bd, $_SESSION['cliente_id']);
+
+    // username
+    $username = obtenerUsername($bd, $_SESSION['cliente_id']);
+
+    // Fecha de inicio
+    $fecha_inicio = obtenerFechaInicioSuscripcion($bd, $_SESSION['cliente_id']);
 
     /*notificaciones*/
     $notificacionesCliente = obtenerNotificacionesCliente($bd, $_SESSION['cliente_id']);
@@ -34,32 +51,97 @@ if(isset($_SESSION['rol']) && $_SESSION['rol'] === 'cliente'){
         <img src="../../src/img/logo_admin/pequeña-sf.png" alt="foto de proveedor">
     </div>
     <div class="iconAccesos">
+        
         <?php if(isset($_SESSION['rol']) && $_SESSION['rol'] === 'cliente'): ?>
-            <div class="estadoSuscripcion">
+            <?php
+                $diasRestantes = null;
 
+                if (!empty($fecha_fin)) {
+                    $hoy = new DateTime('today');
+                    $vencimiento = new DateTime($fecha_fin);
+                    $diferencia = $hoy->diff($vencimiento);
+                    $diasRestantes = $vencimiento < $hoy ? 0 : $diferencia->days;
+                }
+            ?>
+
+            <div class="estadoSuscripcion conteinerIconoHeader">
                 <span class="iconUsers noti" id="iconEstado">
-                    <i class="bi bi-check-circle"></i>
+                    <i class="bi bi-check-circle-fill"></i>
                 </span>
 
                 <div class="tooltipSuscripcion" id="tooltipSuscripcion">
-                    Suscripción activa <br>
-                    vence: <?= $fecha_fin ?? '---' ?>
-                </div>
+                    <div class="suscripcionUsuario">
+                        <i class="bi bi-person-circle"></i>
+                        <div>
+                            <strong>@<?= htmlspecialchars($username  ?? 'usuario ') ?></strong>
+                            <span>Cuenta de usuario</span>
+                        </div>
+                    </div>
 
+                    <div class="suscripcionHeader">
+                        <div class="suscripcionIcon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+
+                        <div>
+                            <strong>Mi suscripción</strong>
+                            <span class="suscripcionEstado">
+                                <i class="bi bi-circle-fill"></i> Activa
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="suscripcionBody">
+                        <div class="suscripcionItem">
+                            <span><i class="bi bi-box-seam"></i> Plan contratado</span>
+                            <strong>SUFI mensual</strong>
+                        </div>
+                        <div class="suscripcionItem">
+                            <span><i class="bi bi-calendar-check"></i> Fecha de inicio</span>
+                            <strong><?= !empty($fecha_inicio) ? date('d/m/Y', strtotime($fecha_inicio)) : '---' ?></strong>
+                        </div>
+                        <div class="suscripcionItem">
+                            <span><i class="bi bi-calendar-event"></i> Fecha de vencimiento</span>
+                            <strong><?= !empty($fecha_fin) ? date('d/m/Y', strtotime($fecha_fin)) : '---' ?></strong>
+                        </div>
+                    </div>
+
+                    <div class="suscripcionFooter">
+                        <i class="bi bi-clock-history"></i>
+
+                        <?php if ($diasRestantes !== null): ?>
+                            <?php if ($diasRestantes > 0): ?>
+                                Te quedan <strong><?= $diasRestantes ?> días</strong> de servicio.
+                            <?php else: ?>
+                                <strong>Tu periodo de servicio ha finalizado.</strong>
+                            <?php endif; ?>
+                        <?php else: ?>
+                            Fecha de vencimiento no disponible.
+                        <?php endif; ?>
+                    </div>
+
+                </div>
             </div>
+
         <?php endif; ?>
 
-        <span class="iconUsers msg" id="iconNotificaciones">
-            <i class="bi bi-chat-dots-fill"></i>
-            <?php if($noLeidas > 0): ?>
-                <span class="numberNotif"><?= $noLeidas ?></span>
-            <?php endif; ?>
-        </span>
-        <a href="../../logout.php">
-            <span class="iconUsers logout">
-                <i class="bi bi-x-circle-fill"></i>
-            </span>
-        </a>
+        <div class="conteinerIconoHeader">
+            <span class="iconUsers msg" id="iconNotificaciones">
+                <i class="bi bi-chat-dots-fill"></i>
+                <?php if($noLeidas > 0): ?>
+                    <span class="numberNotif"><?= $noLeidas ?></span>
+                <?php endif; ?>
+            </span>                    
+        </div>
+        
+        <div class="conteinerIconoHeader">
+            <a href="../../logout.php">
+                <span class="iconUsers logout">
+                    <i class="bi bi-x-circle-fill"></i>
+                </span>
+            </a>
+        </div>
+        
     </div>
 </div>
 
@@ -95,19 +177,7 @@ if(isset($_SESSION['rol']) && $_SESSION['rol'] === 'cliente'){
 
 
 
-<script>
-    const iconEstado = document.getElementById("iconEstado");
-    const tooltip = document.getElementById("tooltipSuscripcion");
-
-    if(iconEstado){
-        iconEstado.addEventListener("click", function(){
-            tooltip.style.display = 
-                tooltip.style.display === "block" ? "none" : "block";
-        });
-    }
-</script>
-
-<!--script modal notifiaciones-->
+<!--script modal notificaiones-->
 <script>
     document.addEventListener("DOMContentLoaded", ()=>{
 
@@ -139,15 +209,10 @@ if(isset($_SESSION['rol']) && $_SESSION['rol'] === 'cliente'){
 <!--modal para marcar como leido-->
 <script>
     document.addEventListener("DOMContentLoaded", ()=>{
-
         const cards = document.querySelectorAll(".cardNotificacion");
-
         cards.forEach(card => {
-
             card.addEventListener("click", ()=>{
-
                 const id = card.getAttribute("data-id");
-
                 fetch("../../view/cliente/marcar_notificacion.php", {
                     method: "POST",
                     headers: {
@@ -159,10 +224,8 @@ if(isset($_SESSION['rol']) && $_SESSION['rol'] === 'cliente'){
                 .then(data => {
 
                     if(data.trim() === "ok"){
-
                         card.classList.remove("noLeida");
                         card.classList.add("leida");
-
                         const badge = document.querySelector(".numberNotif");
 
                         if(badge){
@@ -175,14 +238,9 @@ if(isset($_SESSION['rol']) && $_SESSION['rol'] === 'cliente'){
                                 badge.innerText = num;
                             }
                         }
-
                     }
-
                 });
-
             });
-
         });
-
     });
 </script>
