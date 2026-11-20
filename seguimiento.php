@@ -88,21 +88,6 @@ $indiceActual = array_search($estadoActual, $clavesEstados);
 
             <div class="containerDetailsOrder">
                 <iconify-icon icon="lets-icons:check-fill" class="iconcheckSeguimiento"></iconify-icon>
-                <p><strong>Descripción:</strong> <?= htmlspecialchars($pedido['descripcion']) ?></p>
-            </div>
-
-            <div class="containerDetailsOrder">
-                <iconify-icon icon="lets-icons:check-fill" class="iconcheckSeguimiento"></iconify-icon>
-                <p><strong>Dirección de envío:</strong> <?= htmlspecialchars($pedido['direccion']) ?></p>
-            </div>
-
-            <div class="containerDetailsOrder">
-                <iconify-icon icon="lets-icons:check-fill" class="iconcheckSeguimiento"></iconify-icon>
-                <p><strong>Precio:</strong>  S/. <?= htmlspecialchars($pedido['precio']) ?></p>
-            </div>
-
-            <div class="containerDetailsOrder">
-                <iconify-icon icon="lets-icons:check-fill" class="iconcheckSeguimiento"></iconify-icon>
                 <p><strong>Fecha de registro:</strong> <?= htmlspecialchars($fechaFormateada) ?></p>
             </div>
 
@@ -110,6 +95,53 @@ $indiceActual = array_search($estadoActual, $clavesEstados);
                 <iconify-icon icon="lets-icons:check-fill" class="iconcheckSeguimiento"></iconify-icon>
                 <p><strong>Hora de registro:</strong> <?= htmlspecialchars($horaFormateada) ?> hrs</p>
             </div>
+
+            <div class="containerDetailsOrder">
+                <iconify-icon icon="lets-icons:check-fill" class="iconcheckSeguimiento"></iconify-icon>
+                <p><strong>Dirección de envío:</strong> <?= htmlspecialchars($pedido['direccion']) ?></p>
+            </div>
+
+
+
+
+            <!-- Productos del pedido -->
+            <div class="cardProductosSeguimiento">
+
+                <div class="cardProductosHeader">
+                    <h5>Productos del pedido</h5>
+                    <span><?= count($pedido['productos']) ?> productos</span>
+                </div>
+
+                <div class="cardProductosBody">
+
+                    <?php foreach($pedido['productos'] as $producto): ?>
+
+                        <div class="productoSeguimiento">
+
+                            <div class="productoSeguimientoInfo">
+                                <strong>
+                                    <?= htmlspecialchars($producto['descripcion']) ?>
+                                </strong>
+
+                                <small>
+                                    S/ <?= number_format((float)$producto['precio'], 2) ?>
+                                    × <?= (int)$producto['cantidad'] ?> unidades
+                                </small>
+                            </div>
+
+                            <strong class="productoSeguimientoSubtotal">
+                                S/ <?= number_format((float)$producto['subtotal'], 2) ?>
+                            </strong>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
+                <div class="cardProductosFooter">
+                    <span>Total del pedido</span>
+                    <strong>S/ <?= number_format((float)$pedido['total'], 2) ?></strong>
+                </div>
+            </div>
+
 
             <div class="mt-2">
                 <p class="m-0 p-0"><strong>Progreso:</strong></p>

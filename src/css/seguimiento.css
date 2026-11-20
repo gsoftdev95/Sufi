@@ -111,7 +111,7 @@
 }
 .iconcheckSeguimiento{
     color: var(--success);
-    font-size: 3rem;
+    font-size: 2rem;
 
     @media (width<480px) {
         font-size: 2rem;
@@ -126,6 +126,96 @@
         font-size: 0.9rem;
     }
 }
+
+/* Card principal de productos */
+.cardProductosSeguimiento {
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.cardProductosHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.cardProductosHeader h5 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.cardProductosHeader span {
+    font-size: .8rem;
+    color: #777;
+}
+
+/* Contenedor de productos */
+.cardProductosBody {
+    padding: 5px 15px;
+}
+
+.productoSeguimiento {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.productoSeguimiento:last-child {
+    border-bottom: none;
+}
+
+.productoSeguimientoInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.productoSeguimientoInfo strong {
+    font-size: .95rem;
+    overflow-wrap: anywhere;
+}
+
+.productoSeguimientoInfo small {
+    color: #777;
+    font-size: .82rem;
+}
+
+.productoSeguimientoSubtotal {
+    white-space: nowrap;
+    font-size: .95rem;
+}
+
+/* Total */
+.cardProductosFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: #f8f9fa;
+    border-top: 1px solid #e5e5e5;
+}
+
+.cardProductosFooter span {
+    font-weight: 600;
+}
+
+.cardProductosFooter strong {
+    font-size: 1.2rem;
+}
+
+
+
 .secuenciaEstado{
     display:flex;
     justify-content:space-between;

@@ -14,6 +14,7 @@
 
     --text-title: #0F172A;
     --text-body: #334155;
+    --text-simple: #ababab ;
 
     --success: #22C55E;
     --success-hover: #16A34A;
@@ -26,6 +27,7 @@
     --sufi-dark: #17231e;
 
     --sufi-container: 1180px;
+
 }
 *{
     margin: 0;
@@ -1639,6 +1641,11 @@ button {
     visibility: hidden;
     transform: translateY(8px);
     transition: all .2s ease;
+    
+    @media (width<480px) {        
+        top: calc(100% + 10px);
+        right: -100px;
+    }
 }
 
 
@@ -1985,6 +1992,7 @@ button {
         margin: 0px;
     }
 }
+
 .contTableInner{
     width: 100%;
 
@@ -2251,6 +2259,11 @@ button {
 
 footer{
     background-color: black;
+    padding: 20px;
+    @media (width<480px) {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
 }
 
 
@@ -2722,19 +2735,23 @@ footer{
     width: 100%;
 
     @media (width<1024px) {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    @media (width<480px) {
+        flex-wrap:nowrap;
     }
 }
 .cardsPedidos{    
     background-color: var(--bg);
     padding: 10px;
     border-radius: 10px;
-    max-width: 200px;
-    width: 100%;
+    width: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (width<450px) {
+        width: 100%;
+    }
 }
 .titleCardPedidos{
     font-size: 1rem;
@@ -2744,6 +2761,9 @@ footer{
 .rspCardPedido{
     font-size: 2.5rem;
     text-align: left;
+    @media (width<480px) {
+        font-size: 1.8rem;
+    }
 }
 .containerTablePedidos{ 
     background-color: var(--bg);
@@ -2774,12 +2794,21 @@ footer{
         display: grid;
         grid-template-columns: repeat(2, auto);
         gap: 6px;
-        width: 90%;
+        width: 100%;
         margin: 10px 0px;
     }
 }
 .pedidosSearchForm input{
-    max-width: clamp(300px, 50vw, 500px);
+    max-width: 500px;
+    width: 100%;
+    margin: 0px 10px 0px 0px;
+    @media (width<1200px) {
+        margin: 5px 0px;
+    }
+    @media (width<480px) {
+        width: 100%;
+        margin: 0px;
+    }
 }
 .pedidosSearchForm select{
     border: 1px solid rgba(27, 31, 35, 0.15);
@@ -2787,10 +2816,21 @@ footer{
     box-sizing: border-box;
     cursor: pointer;
     padding:0px 10px;
+    @media (width<1200px) {
+        margin: 5px 5px 0px 0px;
+    }
+    @media (width<480px) {
+        margin: 5px 5px 0px 0px;
+        width: 130px;
+        height: 35px;
+    }
 }
 .btnSearchFormPed{
     background-color: var(--success);
     margin: 0px 5px;
+    @media (width<1200px) {
+        margin: 5px 0px;
+    }
 
     @media (width<480px) {
         margin: 0;
@@ -2800,42 +2840,69 @@ footer{
     background-color: var(--success-hover);
 }
 .contDocsPed{
-    width: 100%;
+    width: 300px;
+    height: 100%;
     display: flex;
     justify-content: flex-end;
 
+    @media (width<1200px) { 
+        justify-content: flex-end;
+        align-items: flex-end;    
+        height: 100px;      
+    }
     @media (width<480px) {
         justify-content: flex-start;
-        width: 90%;   
+        width: 90%;
+        height: 30px;
     }
 }
 .ExpCsvPed{
     text-decoration: none;
     width: 150px;
+    height: 40px;
     background-color: var(--text-body);
     border: none;
     padding: 8px 18px;
     color: var(--bg);
-    border-radius: 10px;
+    border-radius: 10px;    
 
     @media (width<480px) {
         justify-content: flex-start;
-        font-size: 0.8rem;        
+        font-size: 0.8rem;  
+        height: 30px;
+        line-height: 15px;  
     }
 }
 
-/* CONTENEDOR TABLA 
+/*CONTENEDOR TABLA PEDIDOS*/
 .contaTablePed{
-    width: 100%;
     max-height: 600px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;  
     overflow-y: auto;
     overflow-x: auto;
-}*/
+
+    @media (width<1300px) {
+        width: 1000px;
+    }
+    @media (width<1229px) {
+        width: 900px;
+    }
+    @media (width<1125px) {
+        width: 800px;
+    }
+    @media (width<1025px) {
+        width: 700px;
+    }
+    @media (width<480px) {
+        width: 350px;
+    }
+}
 
 /* TABLA */
 .tablaPedidos {
     width: 100%;
-    min-width: 1000px; /* evita que se comprima demasiado */
     border-collapse: separate;
     border-spacing: 0;
     font-size: 14px;
@@ -2859,7 +2926,80 @@ footer{
 .tablaPedidos td {
     padding: 10px 12px;
     vertical-align: middle;
+    text-align: center;
     border-bottom: 1px solid #eee;
+    @media (width<990px) {
+        padding: 3px 7px;
+    }
+}
+.tablaPedidos th:nth-child(1),
+.tablaPedidos td:nth-child(1){ /* Id */
+    width: 100px;
+    @media (width<1200px) {
+        font-size: 12px;
+    }
+    @media (width<990px) {
+        display: none;
+    }
+}
+.tablaPedidos th:nth-child(2),
+.tablaPedidos td:nth-child(2){ /* clientes*/
+    width: 150px;
+    min-width: 150px;
+}
+.tablaPedidos th:nth-child(3),
+.tablaPedidos td:nth-child(3){ /* productos*/
+    width: 200px;
+    min-width: 200px;
+}
+.tablaPedidos th:nth-child(4),
+.tablaPedidos td:nth-child(4){ /* direccion */
+    width: 400px;
+    min-width: 200px;
+    @media (width<1200px) {
+        font-size: 12px;
+    }
+    @media (width<990px) {
+        display: none;
+    }
+}
+.tablaPedidos th:nth-child(5),
+.tablaPedidos td:nth-child(5){ /* direccion */
+    width: 150px;
+        min-width: 150px;
+    @media (width<1300px) {
+        font-size: 12px;
+    }
+    @media (width<990px) {
+        display: none;
+    }
+}
+.tablaPedidos th:nth-child(8),
+.tablaPedidos td:nth-child(8){
+
+}
+.tablaPedidos td:nth-child(8){ /* accion */
+    min-width: 300px;
+    width: 300px;
+    @media (width<1300px) {
+        padding: 2px;
+        font-size: 12px;
+        min-width: 200px;
+        width: 200px;
+    }
+    @media (width<1150px) {        
+        width: 350px;
+    }
+}
+.iconTabPed{
+    margin: 0px 7px;
+    font-size: 2rem;
+    @media (width<1300px) {
+        font-size: 1.8rem;
+    }
+    @media (width<990px) {
+        font-size: 1.5rem;
+    }
 }
 
 /* HOVER FILAS */
@@ -2867,49 +3007,28 @@ footer{
     background-color: #f5f7fa;
     transition: 0.2s ease-in-out;
 }
-
-/* COLUMNAS CORTAS */
-.tablaPedidos td:nth-child(1), /* Id */
-.tablaPedidos td:nth-child(2), /* Cliente */
-.tablaPedidos td:nth-child(5), /* Fecha */
-.tablaPedidos td:nth-child(6), /* Precio */
-.tablaPedidos td:nth-child(7),  /* Total */
-.tablaPedidos td:nth-child(9) /* Accion */{
-    white-space: nowrap;
-    text-align: center;
-}
-.contTableInnerNeg table th:nth-child(4),
-.tablaPedidos td:nth-child(4){
-    
-    @media (width<480px) {
-        min-width: 200px;
-    }
+.listaProductosTabla {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
-.tablaPedidos td:nth-child(7)  /* Total */ {
-    max-width: 100px;
-}
-.tablaPedidos td:nth-child(8)  /* estado */ {
-    min-width: 100px;
-}
-.tablaPedidos th:nth-child(8), 
-.tablaPedidos td:nth-child(8){
-    @media (width<1600px) {
-        width: 200px;
-    }
-    
-    @media (width<480px) {
-        min-width: 250px;
-    }
+.productoPrincipal {
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
-/* DESCRIPCIÓN Y DIRECCIÓN (permitir salto de línea) */
-.tablaPedidos td:nth-child(3),
-.tablaPedidos td:nth-child(4) {
-    white-space: normal; /* permite salto */
-    word-break: break-word; /* corta palabras largas */
-    max-width: 220px;
+.productoPrincipal span {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
 }
+
+.productosAdicionales {
+    color: #777;
+    font-size: 0.7rem;
+}
+
+
 
 /* SCROLL MÁS LIMPIO */
 .contaTablePed::-webkit-scrollbar {
@@ -2927,6 +3046,7 @@ footer{
 }
 
 
+
 /*modal agregar pedidos*/
 
 .openModalPedido{
@@ -2940,6 +3060,7 @@ footer{
 .addPedidoBtn{
     @media (width<1024px) {
         background: linear-gradient(to top, var(--secondary), white);
+        color: var(--sufi-dark);
     }
 }
 .modalOverlayPed{
@@ -2977,7 +3098,7 @@ footer{
 }
 
 .titleModal{
-    color: var(--text-title);
+    color: var(--primary);
     font-weight: 600;
 }
 .closeModalPed{
@@ -2991,17 +3112,43 @@ footer{
     from{ transform: scale(0.9); opacity: 0; }
     to{ transform: scale(1); opacity: 1; }
 }
+.formPedidoSimple label{
+    @media (width<480px) {
+        font-size: 12px;
+        color: var(--text-simple);
+        padding: 0;
+    } 
+}
+
 .btnAddPedido{
     border: none;
     background-color: var(--success);
     border-radius: 10px;
     padding: 5px 15px;
     transition: background-color 0.2s ease-in-out;
+    @media (width<480px) {
+        border-radius: 5px;        
+    }
 }
 .btnAddPedido:hover{
     background-color: var(--success-hover);
 }
+.btnAddProductoMultiple{
+    background-color: var(--secondary);
+}
+.formPedidoMultiple label{
+    @media (width<480px) {
+        font-size: 12px;
+        color: var(--text-simple);
+        padding: 0;
+    }    
+}
 
+.btnAddProductoMultiple span{
+    @media (width<480px) {
+        display: none;
+    }
+}
 
 /*modal agregar pedido rapido*/
 
@@ -3023,48 +3170,120 @@ footer{
     z-index: 1000;    
 }
 
+.tablaPedidos form{
+    display: flex;
+    justify-content: center;
+}
+
+/* Selector de estados */
+.selectorEstado {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    width: 160px;
+    min-height: 38px;
+    box-sizing: border-box;
+    background-color: var(--border);
+    padding: 2px 10px;
+    border-radius: 20px;
+
+    @media (width < 480px) {        
+        width: 140px;
+        padding: 2px 8px;
+        min-height: 30px;
+        border-radius: 10px;
+    }
+}
+
+.indicadorEstado {
+    width: 9px;
+    height: 9px;
+    min-width: 9px;
+    border-radius: 50%;
+    background-color: var(--color-estado);
+}
 .estado {
     width: 100%;
-    max-width: 140px;
-    padding: 7px 15px;
-    border-radius: 20px;
-    border: none;
-    font-size: 0.8rem;
-    font-weight: bold;
-    display: inline-block;
-}
-
-.estado-pendiente {
-    background-color: rgb(169, 169, 169, 0.5);
-    border: 1px solid  rgb(169, 169, 169);
-}
-.estado-confirmado {
-    background-color: rgb(255, 255, 44, 0.5);
-    border: 1px solid rgb(255, 255, 44);
-}
-.estado-en_proceso {
-    background-color: rgb(91, 192, 222, 0.5);
-    border: 1px solid  rgb(91, 192, 222);
-}
-.estado-enviado {
-    background-color: rgb(251, 146, 60, 0.5);
-    border: 1px solid  rgb(251, 146, 60);
-}
-.estado-entregado {
-    background-color: rgb(34, 197, 94, 0.5);
-    border: 1px solid  rgb(34, 197, 94);
-}
-.estado-cancelado {
-    background-color: rgb(239, 68, 68, 0.5);
-    border: 1px solid  rgb(239, 68, 68);
-}
-
-.checkEstado{
+    max-width: none;
+    min-width: 0;
+    padding: 7px 5px;
     border: none;
     background-color: transparent;
-    font-size: 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
     color: var(--text-title);
+    cursor: pointer;
+    box-sizing: border-box;
+
+    @media (width < 480px) {
+        padding: 4px 3px; 
+        font-size: 0.7rem;
+    }
 }
+.estado:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+/* Estados: color del indicador */
+.estado-pendiente {
+    --color-estado: rgb(169, 169, 169);
+}
+
+.estado-confirmado {
+    --color-estado: rgb(255, 255, 44);
+}
+
+.estado-en_proceso {
+    --color-estado: rgb(59, 130, 246);
+}
+
+.estado-enviado {
+    --color-estado: #F97316;
+}
+
+.estado-entregado {
+    --color-estado: #22C55E;
+}
+
+.estado-cancelado {
+    --color-estado: #EF4444;
+}
+span.estado {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.estado option {
+    border-radius: 8px;
+    padding: 8px;
+    border: none;
+}
+.estado option:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+
+/* Botón de confirmar */
+.checkEstado {
+    border: none;
+    background-color: transparent;
+    font-size: 1.1rem;
+    color: var(--text-title);
+    cursor: pointer;
+    margin: 0px 0px 0px 5px;
+}
+
+/* Estado cuando solo se muestra como texto */
+span.estado {
+    display: inline-flex;
+    align-items: center;
+}
+
+
+
 
 
 /*modal ver pedido*/
@@ -3103,6 +3322,20 @@ footer{
         overflow-y: auto;
     }
 }
+
+.modalContentviewPed::-webkit-scrollbar{
+    width: 5px;
+}
+.modalContentviewPed::-webkit-scrollbar-track{
+    background-color: #999;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.modalContentviewPed::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background: var(--accent)
+}
 .closeModalViewPed{
     position: absolute;
     top: 10px;
@@ -3111,6 +3344,12 @@ footer{
     font-size: 20px;
 }
 .modalContentviewPed div h6{
+    font-size: 13px;
+    margin: 0;
+    color: var(--text-simple);
+    font-weight: 200;
+}
+.modalContentviewPed div p{
     font-weight: bolder;
 }
 
@@ -3118,6 +3357,49 @@ footer{
     from{ transform: scale(0.9); opacity: 0; }
     to{ transform: scale(1); opacity: 1; }
 }
+
+.listaProductosView {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid var(--text-simple);
+    border-radius: 10px;
+}
+
+.productoViewCard {
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-end;
+    gap: 15px;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-secondary);
+}
+
+.productoViewInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.productoViewInfo strong {
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+}
+
+.productoViewInfo small {
+    color: var(--text-simple);
+    font-size: .7rem;
+    font-weight: lighter;
+}
+
+.productoViewSubtotal {
+    white-space: nowrap;
+    font-size: .95rem;
+}
+
 
 /*modal editar pedido*/
 .openModalEditPedido{
@@ -3142,10 +3424,26 @@ footer{
     background: white;
     padding: 30px;
     border-radius: 10px;
-    width: 400px;
+    width: 450px;
     max-width: 90%;
     position: relative;
     animation: fadeEditPed 0.3s ease;
+
+    max-height: 85vh;
+    overflow-y: auto;
+}
+.modalContentEditPed::-webkit-scrollbar{
+    width: 5px;
+}
+.modalContentEditPed::-webkit-scrollbar-track{
+    background-color: #999;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.modalContentEditPed::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background: var(--accent)
 }
 .closeModalEditPed{
     position: absolute;
@@ -3161,6 +3459,10 @@ footer{
     from{ transform: scale(0.9); opacity: 0; }
     to{ transform: scale(1); opacity: 1; }
 }
+.btnaddPedidoEdit{
+    background-color: var(--secondary);
+    font-size: 13px;
+}
 .btnUpdPedido{
     border: none;
     background-color: var(--success);
@@ -3171,6 +3473,9 @@ footer{
 }
 .btnUpdPedido:hover{
     background-color: var(--success-hover);
+}
+#contenedorProductosEdit label{
+    font-weight: 400;
 }
 
 /*modal eliminar pedido*/

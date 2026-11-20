@@ -107,10 +107,10 @@ $pedidosPorEstado = obtenerPedidosPorEstado($bd, $cliente_id);
     <script src="../../src/js/main.js"></script>
 
     <script>
-    const ingresosPorMesGraf = <?= json_encode($ingresosPorMesGraf) ?>;
-    const pedidosPorMesGraf = <?= json_encode($pedidosPorMesGraf) ?>;
-    const estadosLabels = <?= json_encode($pedidosPorEstado['labels']) ?>;
-    const estadosData = <?= json_encode($pedidosPorEstado['data']) ?>;
+        const ingresosPorMesGraf = <?= json_encode($ingresosPorMesGraf) ?>;
+        const pedidosPorMesGraf = <?= json_encode($pedidosPorMesGraf) ?>;
+        const estadosLabels = <?= json_encode($pedidosPorEstado['labels']) ?>;
+        const estadosData = <?= json_encode($pedidosPorEstado['data']) ?>;
     </script>
 
 </body>
